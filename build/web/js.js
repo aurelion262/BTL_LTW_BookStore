@@ -50,6 +50,13 @@ function jsRemoveAttribute(id,attribute)
     document.getElementById(id).removeAttribute(attribute);
 }
 
+function jsAppendAttribute(id,attribute,value)
+{
+    alert('hehe');
+    var finalvalue = document.getElementById(id).getAttribute(attribute) + value;
+    document.getElementById(id).setAttribute(attribute,finalvalue);
+}
+
 function jsUpdateImage(event,id)
 {
     jsRemoveAttribute(id,"hidden");

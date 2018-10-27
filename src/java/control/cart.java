@@ -8,6 +8,7 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +25,8 @@ import model.DAO;
  *
  * @author i1vag_000
  */
-@WebServlet(name="addToCart", urlPatterns={"/addToCart"})
-public class addToCart extends HttpServlet {
+@WebServlet(name="cart", urlPatterns={"/cart"})
+public class cart extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,26 +37,20 @@ public class addToCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        int accountId = ((Account)session.getAttribute("account")).getId();
-        int bookId = Integer.parseInt(request.getParameter("bookId"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        BooksInCart bic = new BooksInCart();
         DAO dao = new DAO();
-        if(dao.getFromCart(accountId, bookId)!=null)
+        int accountId = ((Account)session.getAttribute("account")).getId();
+        ArrayList<BooksInCart> cart = dao.getAllFromCart(accountId);
+        ArrayList<Book> books = new ArrayList<>();
+        for(BooksInCart bic : cart)
         {
-            bic = dao.getFromCart(accountId, bookId);
-            bic.setQuantity(bic.getQuantity()+quantity);
-            dao.editBooksInCart(bic);
+            books.add(dao.getBook(bic.getBookId()));
         }
-        else
-        {
-            bic.setAccountId(accountId);
-            bic.setBookId(bookId);
-            bic.setQuantity(quantity);
-            dao.addToCart(bic);
-        }
-        RequestDispatcher dpc = request.getRequestDispatcher("cart");
+        request.setAttribute("cart", cart);
+        request.setAttribute("books", books);
+        RequestDispatcher dpc = request.getRequestDispatcher("cart.jsp");
         dpc.forward(request, response);
     }
 }

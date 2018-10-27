@@ -41,8 +41,8 @@
 					<%
                                             if(session.getAttribute("account")!=null)
                                             {
-                                        %>
-                                        Hello, <%=((Account)session.getAttribute("account")).getUsername()%> (<a class="link" href="logout">Đăng xuất</a>/<a class="link" href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>">Chỉnh sửa hồ sơ</a>)
+                                        %>                                
+                                        Hello, <a class="link" href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>"><%=((Account)session.getAttribute("account")).getUsername()%></a> (<a class="link" href="logout">Đăng xuất</a>/<a class="link" href="cart">Xem giỏ hàng</a>)
                                         <%
                                             }
                                             else{
@@ -133,7 +133,7 @@
 				</div>
 				<p id="newprice"><%=b.getFinalprice()%><span>VND</span> </p>
 				<p id="oldprice"><%=(b.getFinalprice()+b.getDiscount())%><span>VND</span> </p>
-                                <a href="addToCart"><img src="icon/cart.png" width="35px" height="35px">Add to cart</a>
+                                <a href="addToCart?bookId=<%=b.getId()%>&quantity=1"><img src="icon/cart.png" width="35px" height="35px">Add to cart</a>
 			</div>
                     <%
                     }
@@ -148,7 +148,7 @@
 		<div id="bestsalling">
 			
 			<div id="text1">
-				<a href="" class="link" ><p id="bestsallingtext">Best Salling Book</p></a>
+				<a href="" class="link" ><p id="bestsallingtext">Best Selling Book</p></a>
 				<hr size="1" color="black">
 			</div>
                         <%
@@ -170,7 +170,7 @@
 				</div>
 				<p id="newprice"><%=b.getFinalprice()%><span>VND</span> </p>
 				<p id="oldprice"><%=(b.getFinalprice()+b.getDiscount())%><span>VND</span> </p>
-                                <a href="addToCart"><img src="icon/cart.png" width="35px" height="35px">Add to cart</a>
+                                <a href="addToCart?bookId=<%=b.getId()%>&quantity=1"><img src="icon/cart.png" width="35px" height="35px">Add to cart</a>
 			</div>
                         <%
                             
@@ -187,12 +187,12 @@
 	<div id="footer">
 		<div id="address">
 			<p class="text3">Address</p>
-			<p class="text4">Km10 Nguyen Trai, Ha Dong dist, Ha Noi city</p>
+			<p class="text4">Km10 Nguyễn Trãi, Hà Đông, Hà Nội</p>
 		</div>
 
 		<div id="slogan">
 			<p class="text3">Slogan</p>
-			<p class="text4">Khong thieu sach nao ban can.</p>
+			<p class="text4">Không thiếu sách nào bạn cần.</p>
 		</div>
 
 		<div id="payment">

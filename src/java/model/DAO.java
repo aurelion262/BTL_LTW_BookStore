@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import model.Account;
 import model.Book;
 import model.Log;
+import model.BooksInCart;
 
 /**
  *
@@ -292,6 +293,7 @@ public class DAO {
             while(rs.next())
             {
                 Book b = new Book();
+                b.setId(rs.getInt("ID"));
                 b.setAuthor(rs.getString("AUTHOR"));
                 b.setCategory(rs.getString("CATEGORY"));
                 b.setDescription(rs.getString("DESCRIPTION"));
@@ -319,6 +321,7 @@ public class DAO {
             while(rs.next())
             {
                 Book b = new Book();
+                b.setId(rs.getInt("ID"));
                 b.setAuthor(rs.getString("AUTHOR"));
                 b.setCategory(rs.getString("CATEGORY"));
                 b.setDescription(rs.getString("DESCRIPTION"));
@@ -346,6 +349,7 @@ public class DAO {
             while(rs.next())
             {
                 Book b = new Book();
+                b.setId(rs.getInt("ID"));
                 b.setAuthor(rs.getString("AUTHOR"));
                 b.setCategory(rs.getString("CATEGORY"));
                 b.setDescription(rs.getString("DESCRIPTION"));
@@ -587,15 +591,106 @@ public class DAO {
         return list;
     }
     
-    public void addToCart(int accountId, int bookId, int quantity)
+    public BooksInCart getFromCart(int accountId, int bookId)
+    {
+        
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLBOOKSINCART "
+                   + "WHERE ACCOUNTID=? AND BOOKID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountId);
+            ps.setInt(2, bookId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                BooksInCart bic = new BooksInCart();
+                bic.setAccountId(rs.getInt("ACCOUNTID"));
+                bic.setBookId(rs.getInt("BOOKID"));
+                bic.setQuantity(rs.getInt("QUANTITY"));
+                return bic;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<BooksInCart> getAllFromCart(int accountId)
+    {
+        ArrayList<BooksInCart> list = new ArrayList<>();
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLBOOKSINCART "
+                   + "WHERE ACCOUNTID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                BooksInCart bic = new BooksInCart();
+                bic.setAccountId(rs.getInt("ACCOUNTID"));
+                bic.setBookId(rs.getInt("BOOKID"));
+                bic.setQuantity(rs.getInt("QUANTITY"));
+                list.add(bic);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public void addToCart(BooksInCart bic)
     {
         String sql = "INSERT INTO BOOKSTOREWEB.TBLBOOKSINCART (ACCOUNTID, BOOKID, QUANTITY) "
                    + "VALUES (?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, bic.getAccountId());
+            ps.setInt(2, bic.getBookId());
+            ps.setInt(3, bic.getQuantity());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void editBooksInCart(BooksInCart bic)
+    {
+        String sql = "UPDATE BOOKSTOREWEB.TBLBOOKSINCART "
+                   + "SET QUANTITY=? "
+                   + "WHERE ACCOUNTID=? AND BOOKID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, bic.getQuantity());
+            ps.setInt(2, bic.getAccountId());
+            ps.setInt(3, bic.getBookId());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeAllFromCart(int accountId)
+    {
+        String sql = "DELETE FROM BOOKSTOREWEB.TBLBOOKSINCART "
+                   + "WHERE ACCOUNTID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeFromCart(int accountId, int bookId)
+    {
+        String sql = "DELETE FROM BOOKSTOREWEB.TBLBOOKSINCART "
+                   + "WHERE ACCOUNTID=? AND BOOKID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, accountId);
             ps.setInt(2, bookId);
-            ps.setInt(3, quantity);
+            ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -71,7 +71,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \n");
       out.write("        <div id=\"header\">\n");
       out.write("            <div id=\"logo\">\n");
-      out.write("\t\t\t<a class=\"link\" href=\"index.jsp\">\n");
+      out.write("\t\t\t<a class=\"link\" href=\"index\">\n");
       out.write("\t\t\t<img id=\"image\" src=\"logo.png\">\n");
       out.write("\t\t\t</a>\n");
       out.write("            </div>\n");
@@ -136,8 +136,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <option value=\"finalPrice\">Giá</option>\n");
       out.write("                                </select>           \n");
       out.write("                                    <input type=\"text\" id=\"iptBookName\" name=\"bookName\" placeholder=\"Nhập tên\" value=''>\n");
-      out.write("                                    <input type=\"text\" id=\"iptFloorPrice\" name=\"floorPrice\" placeholder=\"Min\" hidden=\"true\" value=''>\n");
-      out.write("                                    <input type=\"text\" id=\"iptCeilingPrice\" name=\"ceilingPrice\" placeholder=\"Max\" hidden=\"true\" value=''>\n");
+      out.write("                                    <input type=\"number\" id=\"iptFloorPrice\" name=\"floorPrice\" placeholder=\"Min\" hidden=\"true\" value=''>\n");
+      out.write("                                    <input type=\"number\" id=\"iptCeilingPrice\" name=\"ceilingPrice\" placeholder=\"Max\" hidden=\"true\" value=''>\n");
       out.write("                                    <input list=\"author\" name=\"author\" id=\"iptAuthor\" placeholder=\"Nhập tác giả\" hidden=\"true\" value=''>\n");
       out.write("                                    <datalist id=\"author\">\n");
       out.write("                                        ");
@@ -223,7 +223,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t<p id=\"oldprice\">");
       out.print((b.getFinalprice()+b.getDiscount()));
       out.write("<span>VND</span> </p>\n");
-      out.write("\t\t\t\t<button id=\"addcart\">Add to cart</button>\n");
+      out.write("                                <a href=\"addToCart\"><img src=\"icon/cart.png\" width=\"35px\" height=\"35px\">Add to cart</a>\n");
       out.write("\t\t\t</div>\n");
       out.write("                    ");
 
@@ -279,7 +279,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t<p id=\"oldprice\">");
       out.print((b.getFinalprice()+b.getDiscount()));
       out.write("<span>VND</span> </p>\n");
-      out.write("\t\t\t\t<button id=\"addcart\">Add to cart</button>\n");
+      out.write("                                <a href=\"addToCart\"><img src=\"icon/cart.png\" width=\"35px\" height=\"35px\">Add to cart</a>\n");
       out.write("\t\t\t</div>\n");
       out.write("                        ");
 
