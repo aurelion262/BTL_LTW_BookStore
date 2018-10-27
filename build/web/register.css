@@ -1,0 +1,47 @@
+#outsite{
+	display: flex;
+	justify-content: center;
+}
+.centerHor{
+    justify-content: center;
+    display: flex;
+}
+.inputtext{
+    height: 30px;
+    width: 300px;
+}
+#framefb{
+    width: 300px;
+    height: 40px;
+    padding-top:  20px;
+}
+#fbtext{
+    color: #1a75ff;
+    text-decoration: none; 
+}
+#textre{
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+}
+#btnregister{
+    margin-top: 10px;
+    background-color: green;
+    height: 30px;
+    width: 90px;
+}
+#forgetpass{
+    float: left;
+    text-decoration: none;
+    margin-left: 10px;
+}
+#regisinlogin{
+   margin-left: 200px;
+   text-decoration: none;
+}
+#more{
+    margin-top: 10px;
+}
+.linkmore{
+    text-decoration: none;
+}
