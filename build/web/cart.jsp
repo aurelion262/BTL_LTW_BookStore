@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css_viewcart.css">
+        <link rel="stylesheet" type="text/css" href="viewcart.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><%=((Account)session.getAttribute("account")).getName()%>'s cart</title>
         <script type="text/javascript" src="js.js"></script>
@@ -43,12 +43,12 @@
                                             if(session.getAttribute("account")!=null)
                                             {
                                         %>
-                                        Hello, <a class="link" href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>"><%=((Account)session.getAttribute("account")).getUsername()%></a> (<a class="link" href="logout">Đăng xuất</a>/<a class="link" href="cart">Xem giỏ hàng</a>)
+                                        Hello, <a class="link" href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>"><%=((Account)session.getAttribute("account")).getUsername()%></a> (<a class="link" href="logout" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Đăng xuất</a>/<a class="link" href="cart" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Xem giỏ hàng</a>)
                                         <%
                                             }
                                             else{
                                         %>
-                                            <br><a class="link" href="register.jsp">Đăng ký</a>/<a class="link" href="login.jsp">Đăng nhập</a>
+                                            <br><a class="link" href="register.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Đăng ký</a>/<a class="link" href="login.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Đăng nhập</a>
                                         <%
                                             }
                                         %>
@@ -59,7 +59,7 @@
                                                 if(((Account)session.getAttribute("account")).getRole().equals("ADMIN"))
                                                 {
                                         %>
-                                        <br><a class="link" href="accountList">Danh sách tài khoản</a> / <a class="link" href="order.jsp">Danh sách đơn hàng</a> / <a class="link" href="log.jsp">Nhật ký hoạt động</a> / <a class="link" href="addBook.jsp">Thêm sách</a>
+                                        <br><a class="link" href="accountList" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Danh sách tài khoản</a> / <a class="link" href="order.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Danh sách đơn hàng</a> / <a class="link" href="log.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Nhật ký hoạt động</a> / <a class="link" href="addBook.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Thêm sách</a>
                                         <%
                                                 }
                                             }
@@ -69,16 +69,16 @@
                         <div id="searchbar">
 				<div id="frames">
 				<form method="POST" action="searchBook">
-                                <select id="slctSearchOption" name="searchOption" onchange="jsSearchOption(this.options[this.selectedIndex].value)">
-                                    <option value="name">Tên sách</option>
-                                    <option value="author">Tác giả</option>
-                                    <option value="category">Thể loại</option>
-                                    <option value="finalPrice">Giá</option>
+                                <select style="font-family: comic sans ms" id="slctSearchOption" name="searchOption" onchange="jsSearchOption(this.options[this.selectedIndex].value)">
+                                    <option style="font-family: comic sans ms" value="name">Tên sách</option>
+                                    <option style="font-family: comic sans ms" value="author">Tác giả</option>
+                                    <option style="font-family: comic sans ms" value="category">Thể loại</option>
+                                    <option style="font-family: comic sans ms" value="finalPrice">Giá</option>
                                 </select>           
-                                    <input type="text" id="iptBookName" name="bookName" placeholder="Nhập tên" value=''>
-                                    <input type="number" id="iptFloorPrice" name="floorPrice" placeholder="Min" hidden="true" value=''>
-                                    <input type="number" id="iptCeilingPrice" name="ceilingPrice" placeholder="Max" hidden="true" value=''>
-                                    <input list="author" name="author" id="iptAuthor" placeholder="Nhập tác giả" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" type="text" id="iptBookName" name="bookName" placeholder="Nhập tên" value=''>
+                                    <input style="font-family: comic sans ms" type="number" id="iptFloorPrice" name="floorPrice" placeholder="Min" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" type="number" id="iptCeilingPrice" name="ceilingPrice" placeholder="Max" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" list="author" name="author" id="iptAuthor" placeholder="Nhập tác giả" hidden="true" value=''>
                                     <datalist id="author">
                                         <%
                                             ArrayList<String> authorList = new DAO().getAuthor();
@@ -90,7 +90,7 @@
                                             }
                                         %>
                                     </datalist>
-                                    <input list="category" name="category" id="iptCategory" placeholder="Nhập thể loại" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" list="category" name="category" id="iptCategory" placeholder="Nhập thể loại" hidden="true" value=''>
                                     <datalist id="category">
                                         <%
                                             ArrayList<String> categoryList = new DAO().getCategory();
@@ -102,7 +102,7 @@
                                             }
                                         %>
                                     </datalist>
-                                    <input type="submit" value="Tìm">
+                                    <input style="font-family: comic sans ms" type="submit" value="Tìm">
                                 </form>
                                 </div>
                         </div>
@@ -122,6 +122,8 @@
                                 <div class="ket">
 							<hr size="1" color="black">
                                 </div>
+                                <div id="ngoai">
+                                    <div id="trong">
                                 <%
                                     int dex=0;
                                     long total=0;
@@ -130,33 +132,35 @@
                                     for(BooksInCart bic : cart)
                                     { 
                                 %>                                
-				<div>                                        
+                                    
 					<div class="block">
 						<div id="cover">
-							<img src="<%=books.get(dex).getImageurl()%>" class="biasach">
+                                                    <a href="bookDetail?bookId=<%=books.get(dex).getId()%>"><img src="<%=books.get(dex).getImageurl()%>" class="biasach"></a>
 						</div>
 
 						<div id="inforsach">
-							<p>Tên : <%=books.get(dex).getName()%></p>
-                                                        <p>Tác giả : <%=books.get(dex).getAuthor()%></p>
-                                                        <p>Số lượng : <%=bic.getQuantity()%></p>
-							<p>Đơn giá : <%=books.get(dex).getFinalprice()%></p>							
+							<div class="inforline">Tên : <%=books.get(dex).getName()%></div>
+                                                        <div class="inforline">Tác giả : <%=books.get(dex).getAuthor()%></div>
+                                                        <div class="inforline">Số lượng : <%=bic.getQuantity()%></div>
+							<div class="inforline">Đơn giá : <%=books.get(dex).getFinalprice()%> VNĐ</div>							
 						</div>
 
-						<div id="addmore">							
-							<a href='removeFromCart?accountId=<%=bic.getAccountId()%>&bookId=<%=bic.getBookId()%>'>Xóa khỏi giỏ</a>
-							<p>Tổng <span><%=bic.getQuantity()*books.get(dex).getFinalprice()%></span>VND</p>
+						<div id="addmore">                                                    
+                                                    <div class="delete_from_cart"><a class="link" href='removeFromCart?accountId=<%=bic.getAccountId()%>&bookId=<%=bic.getBookId()%>' onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src='icon/cancel.png' width=25 height=25 title="Xoá khỏi giỏ"></a></div>
+                                                    <div class="total_price">Tổng: <span><%=bic.getQuantity()*books.get(dex).getFinalprice()%></span> VND</div>
 						</div>
 						<div class="ket">
 							<hr size="1" color="black">
 						</div>
 					</div>
-				</div>                                                    
+                                    
                                     <%
                                         total+=bic.getQuantity()*books.get(dex).getFinalprice();
                                         dex=dex+1;
                                         }
-                                    %>   
+                                    %>
+                                    </div> 
+				</div>
 			</div>
 		</div>	
 
@@ -168,14 +172,14 @@
 					</div>
 
 					<div id="total">
-						<p>Total: <%=total%></p>
+						<p>Total: <%=total%> VND</p>
 					</div>
 					<div id="vat">
 						<p>(Đã bao gồm VAT)</p>
 					</div>
 					<div>
-					<input type="text" name="" placeholder="Ma giam gia">
-					<button>Ap dung </button>
+					<input type="text" name="" placeholder="Mã giảm giá">
+					<button>Áp dụng </button>
 					<img src="icon/tick.png" id="tick">
 					</div>
 					<div id="giao">
@@ -189,8 +193,7 @@
 				</div>
 
 				<div id="order">
-					<button>Tien hanh dat hang</button>
-					<button>Tiep tuc mua hang</button>
+                                    <a href="createOrder"><img style="padding-bottom: 90px" src="icon/dat_hang.png"></a>
 				</div>
 			</div>
 		</div>

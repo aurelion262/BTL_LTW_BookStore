@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/web/cart.jsp</file>
-            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/src/java/control/cart.java</file>
-            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/web/index.jsp</file>
+            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/src/java/control/searchBook.java</file>
+            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/web/searchBook.jsp</file>
+            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/src/java/control/deleteBook.java</file>
+            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/web/addBook.jsp</file>
+            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/web/searchBook.css</file>
+            <file>file:/C:/Users/i1vag_000/Documents/NetBeansProjects/BookStoreWeb/build/web/js.js</file>
         </group>
     </open-files>
 </project-private>

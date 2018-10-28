@@ -61,18 +61,19 @@
 	width: 100%;
 	height: 700px;
 	background-color: #d0b795;
+        overflow: auto;
 }
 .book{
-	height: 140px;
-	width: 120px;
+	height: 250px;
+	width: 180px;
 }
 .link{
 	text-decoration: none;
 }
 #newprice{
-        font-family: ar bonnie;
+        font-family: Calibri;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 22px;
 }
 #oldprice{
         font-family: ar bonnie;
@@ -80,18 +81,15 @@
 	font-size: 15px;
 }
 #bookname{
-	font-size: 18px;
-	font-style: italic;
-	font-family: Miriam Fixed;
-        height: 70px;
+	font-size: 22px;
+	font-family: Calibri;
 }
 .abook{
         background-color: #d8c3a6;
-        text-align: center;
         float: left;
-	margin-left: 10px;
-        margin-right: 10px;
-        width: 12.6%;
+        padding: 13px;
+	margin: 13px;
+        width: 46%;
 }
 #discount{
     width: 100%;

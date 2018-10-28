@@ -31,23 +31,24 @@
 			</a>
             </div>
             <div id="functionpart">
-			<div id="inforpart">
+			
 				<div id="contactpart">
 					<p id="email">Email: hieusachcu@gmail.com</p>
 					<p id="sdt">Contact: 0966017654</p>
 				</div>
         <%--GENERAL NAVIGATION--%>
+                        <div id="inforpart">
 				<div id="enterpagepart">
 					<%
                                             if(session.getAttribute("account")!=null)
                                             {
-                                        %>                                
-                                        Hello, <a class="link" href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>"><%=((Account)session.getAttribute("account")).getUsername()%></a> (<a class="link" href="logout">Đăng xuất</a>/<a class="link" href="cart">Xem giỏ hàng</a>)
+                                        %>
+                                        Hello, <a class="link" href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>"><%=((Account)session.getAttribute("account")).getUsername()%></a> (<a class="link" href="logout" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Đăng xuất</a>/<a class="link" href="cart" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Xem giỏ hàng</a>)
                                         <%
                                             }
                                             else{
                                         %>
-                                            <br><a class="link" href="register.jsp">Đăng ký</a>/<a class="link" href="login.jsp">Đăng nhập</a>
+                                            <br><a class="link" href="register.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Đăng ký</a>/<a class="link" href="login.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Đăng nhập</a>
                                         <%
                                             }
                                         %>
@@ -58,7 +59,7 @@
                                                 if(((Account)session.getAttribute("account")).getRole().equals("ADMIN"))
                                                 {
                                         %>
-                                        <br><a class="link" href="accountList">Danh sách tài khoản</a> / <a class="link" href="order.jsp">Danh sách đơn hàng</a> / <a class="link" href="log.jsp">Nhật ký hoạt động</a> / <a class="link" href="addBook.jsp">Thêm sách</a>
+                                        <br><a class="link" href="accountList" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Danh sách tài khoản</a> / <a class="link" href="order.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Danh sách đơn hàng</a> / <a class="link" href="log.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Nhật ký hoạt động</a> / <a class="link" href="addBook.jsp" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')">Thêm sách</a>
                                         <%
                                                 }
                                             }
@@ -68,16 +69,16 @@
                         <div id="searchbar">
 				<div id="frames">
 				<form method="POST" action="searchBook">
-                                <select id="slctSearchOption" name="searchOption" onchange="jsSearchOption(this.options[this.selectedIndex].value)">
-                                    <option value="name">Tên sách</option>
-                                    <option value="author">Tác giả</option>
-                                    <option value="category">Thể loại</option>
-                                    <option value="finalPrice">Giá</option>
+                                <select style="font-family: comic sans ms" id="slctSearchOption" name="searchOption" onchange="jsSearchOption(this.options[this.selectedIndex].value)">
+                                    <option style="font-family: comic sans ms" value="name">Tên sách</option>
+                                    <option style="font-family: comic sans ms" value="author">Tác giả</option>
+                                    <option style="font-family: comic sans ms" value="category">Thể loại</option>
+                                    <option style="font-family: comic sans ms" value="finalPrice">Giá</option>
                                 </select>           
-                                    <input type="text" id="iptBookName" name="bookName" placeholder="Nhập tên" value=''>
-                                    <input type="number" id="iptFloorPrice" name="floorPrice" placeholder="Min" hidden="true" value=''>
-                                    <input type="number" id="iptCeilingPrice" name="ceilingPrice" placeholder="Max" hidden="true" value=''>
-                                    <input list="author" name="author" id="iptAuthor" placeholder="Nhập tác giả" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" type="text" id="iptBookName" name="bookName" placeholder="Nhập tên" value=''>
+                                    <input style="font-family: comic sans ms" type="number" id="iptFloorPrice" name="floorPrice" placeholder="Min" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" type="number" id="iptCeilingPrice" name="ceilingPrice" placeholder="Max" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" list="author" name="author" id="iptAuthor" placeholder="Nhập tác giả" hidden="true" value=''>
                                     <datalist id="author">
                                         <%
                                             ArrayList<String> authorList = new DAO().getAuthor();
@@ -89,7 +90,7 @@
                                             }
                                         %>
                                     </datalist>
-                                    <input list="category" name="category" id="iptCategory" placeholder="Nhập thể loại" hidden="true" value=''>
+                                    <input style="font-family: comic sans ms" list="category" name="category" id="iptCategory" placeholder="Nhập thể loại" hidden="true" value=''>
                                     <datalist id="category">
                                         <%
                                             ArrayList<String> categoryList = new DAO().getCategory();
@@ -101,20 +102,25 @@
                                             }
                                         %>
                                     </datalist>
-                                    <input type="submit" value="Tìm">
+                                    <input style="font-family: comic sans ms" type="submit" value="Tìm">
                                 </form>
                                 </div>
                         </div>
             </div>
+        </div>              
+                                    
+                                    
+                                    
+                                    
             <div id="body">
-		<div id="topbody">
+		
 		<div id="text2">
                         <%
                             ArrayList<Book> saleOffList = (ArrayList<Book>)request.getAttribute("saleOffList");
                             if(saleOffList==null) response.sendRedirect("index");
                         %>
-			<a href="" class="link"><p id="discounttext">Sale off Book</p></a>
-			<hr size="1" color="black">
+			<a href="" class="link"><div id="discounttext">Đang khuyến mãi</div></a>
+			
 		</div>
                 
 		<div id="discount">
@@ -127,13 +133,17 @@
                     %>
 			<div class="abook">
                             
-				<a class="link" href="bookDetail?bookId=<%=b.getId()%>"><image src="<%=b.getImageurl()%>" class="book"></image></a>
-				<div>
-					<p id="bookname"><a class="link" href="bookDetail?bookId=<%=b.getId()%>"><%=b.getName()%></a></p>
-				</div>
-				<p id="newprice"><%=b.getFinalprice()%><span>VND</span> </p>
-				<p id="oldprice"><%=(b.getFinalprice()+b.getDiscount())%><span>VND</span> </p>
-                                <a href="addToCart?bookId=<%=b.getId()%>&quantity=1"><img src="icon/cart.png" width="35px" height="35px">Add to cart</a>
+                            <a class="link" href="bookDetail?bookId=<%=b.getId()%>"><image src="<%=b.getImageurl()%>" class="book"></image></a>
+				
+					<div id="bookname"><a class="link" href="bookDetail?bookId=<%=b.getId()%>" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><%=b.getName()%></a></div>
+                                <div style="float:right">
+                                    <a class="link" href="addToCart?bookId=<%=b.getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="65px" height="65px"></a>
+                                </div>
+                                <div style="float:right;padding-top: 8px">
+                                    <div id="newprice"><%=b.getFinalprice()%><span> VND</span></div>
+                                    <div id="oldprice"><%=(b.getFinalprice()+b.getDiscount())%><span> VND</span></div>
+                                </div>
+                                
 			</div>
                     <%
                     }
@@ -143,13 +153,13 @@
                             }
                     %>
 		</div>
-		</div>
-		<div id="botbody">
+		
+		
 		<div id="bestsalling">
 			
 			<div id="text1">
-				<a href="" class="link" ><p id="bestsallingtext">Best Selling Book</p></a>
-				<hr size="1" color="black">
+				<a href="" class="link" ><div id="bestsallingtext">Bán chạy nhất</div></a>
+				
 			</div>
                         <%
                             ArrayList<Book> bestSellingList = (ArrayList<Book>)request.getAttribute("bestSellingList");
@@ -165,13 +175,24 @@
 			<div class="abook">
                             
 				<a class="link" href="bookDetail?bookId=<%=b.getId()%>"><image src="<%=b.getImageurl()%>" class="book"></image></a>
-				<div>
-					<p id="bookname"><a class="link" href="bookDetail?bookId=<%=b.getId()%>"><%=b.getName()%></a></p>
-				</div>
-				<p id="newprice"><%=b.getFinalprice()%><span>VND</span> </p>
-				<p id="oldprice"><%=(b.getFinalprice()+b.getDiscount())%><span>VND</span> </p>
-                                <a href="addToCart?bookId=<%=b.getId()%>&quantity=1"><img src="icon/cart.png" width="35px" height="35px">Add to cart</a>
-			</div>
+				
+					<div id="bookname"><a class="link" href="bookDetail?bookId=<%=b.getId()%>" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><%=b.getName()%></a></div>
+				
+				<div style="float:right">
+                                    <a class="link" href="addToCart?bookId=<%=b.getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="65px" height="65px"></a>
+                                </div>
+                                <div style="float:right;padding-top: 8px">
+                                    <div id="newprice"><%=b.getFinalprice()%><span> VND</span></div>
+                                    <%
+                                        if(b.getDiscount()!=0)
+                                        {
+                                    %>
+                                        <div id="oldprice"><%=(b.getFinalprice()+b.getDiscount())%><span> VND</span></div>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                        </div>
                         <%
                             
                             }
@@ -181,25 +202,33 @@
                         %>
 
 		</div>
-		</div>
+		
 	</div>
 
 	<div id="footer">
 		<div id="address">
 			<p class="text3">Address</p>
-			<p class="text4">Km10 Nguyễn Trãi, Hà Đông, Hà Nội</p>
+			<p class="text4">Cs1:Km10 Nguyen Trai, Ha Dong dist, Ha Noi city</p>
+			<p class="text4">Cs2:152 Nguyen Khuyen, 1st dist, Ho Chi Minh city</p>
+			<p class="text4">Cs3:45 Le Loi, Hoan Kiem dist, Ha Noi city</p>
+
 		</div>
 
 		<div id="slogan">
 			<p class="text3">Slogan</p>
-			<p class="text4">Không thiếu sách nào bạn cần.</p>
+			<p class="text4">Whenever you wanna find a book </p>
+			<p class="text4">Let us help you find it!</p>
+			<div id="soci">
+			<a href="https://www.facebook.com/" > <img src="icon/fb.png"> </a>
+			<a href="https://www.instagram.com/"> <img src="icon/ig.png"></a>
+			</div>
 		</div>
 
 		<div id="payment">
 			<p class="text3">Payment</p>
 			<img src="method.PNG" id="payimage">
 		</div>
-	</div>
+	</div> 
         <%--PAGE CONTENT--%>
     </body>
 </html>

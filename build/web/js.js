@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+var jsImageURL;
 function jsSearchOption(option)
 {
     if(option==='name')
@@ -52,7 +52,6 @@ function jsRemoveAttribute(id,attribute)
 
 function jsAppendAttribute(id,attribute,value)
 {
-    alert('hehe');
     var finalvalue = document.getElementById(id).getAttribute(attribute) + value;
     document.getElementById(id).setAttribute(attribute,finalvalue);
 }
@@ -60,7 +59,8 @@ function jsAppendAttribute(id,attribute,value)
 function jsUpdateImage(event,id)
 {
     jsRemoveAttribute(id,"hidden");
-    document.getElementById(id).setAttribute("src",URL.createObjectURL(event.target.files[0]));
+    jsImageURL = URL.createObjectURL(event.target.files[0]);
+    document.getElementById(id).setAttribute("src",jsImageURL);
 }
 
 function aloalo()

@@ -1,15 +1,13 @@
 #header{
+        font-family: comic sans ms;
 	width: 100%;
 	height: 100px;
 	background-color: white;
 }
-#btnclick{
-	float: left;
-	width: 200px;
-}
+
 #frames{
 	width: 700px;
-	float: left;
+	float: top;
 }
 #logo{
 	height: 100px;
@@ -25,6 +23,7 @@
 	width: 80%;
 }
 #infopart{
+        float:top;
 	height: 50px;
 	width: 100%;
 }
@@ -42,11 +41,11 @@
 	float: left;
 }
 #enterpagepart{
-	float: left;
-	margin-left: 300px;
+        float:top;
+	float: right;
 }
 #searchbar{
-	clear: left;
+        float:top;
 	margin: auto;
 	width: 100%;
 }
@@ -56,61 +55,67 @@
 }
 
 #body{
+        font-family: Calibri;
+        margin-top: 30px;
 	clear: left;
 	width: 100%;
-	height: 670px;
+	height: 700px;
 	background-color: #d0b795;
 }
-#bestsalling{
-	width: 100%;
-	height: 300px;
-}
-#topbody{
-	height: 300px;
-}
 .book{
-	height: 100px;
-	width: 80px;
+	height: 140px;
+	width: 120px;
 }
 .link{
 	text-decoration: none;
 }
 #newprice{
+        font-family: ar bonnie;
 	font-weight: bold;
 	font-size: 18px;
 }
 #oldprice{
+        font-family: ar bonnie;
 	text-decoration: line-through;
 	font-size: 15px;
 }
 #bookname{
-	font-size: 14px;
+	font-size: 18px;
 	font-style: italic;
-	font-family: Verdana, sans-serif;
-
+	font-family: Miriam Fixed;
+        height: 70px;
 }
 .abook{
-	float: left;
-	margin-left: 50px;
-	width: 10%;
+        background-color: #d8c3a6;
+        text-align: center;
+        float: left;
+	margin-left: 10px;
+        margin-right: 10px;
+        width: 12.6%;
+}
+#discount{
+    width: 100%;
+    height: 250px;
+}
+#bestsalling{
+    width: 100%;
+    height: 250px;
 }
 #discounttext{
 	text-align: center;
-	font-size: 20px;
-	font-family: Verdana, sans-serif;
+	font-size: 40px;
+	font-family: andalus;
 	
 
 }
 #bestsallingtext{
 	clear: left;
 	text-align: center;
-	font-size: 20px;
+	font-size: 40px;
 	margin-top: 10px;
-	font-family: Verdana, sans-serif;
-
+	font-family: andalus;
 }
 #text1{
-	margin-top: 30px;
 	color: brown;
 }
 #text2{
@@ -127,7 +132,7 @@
 }
 #slogan{
 	float: left;
-	width: 30%;
+	width: 40%;
 
 }
 #payment{
@@ -142,5 +147,8 @@
 }
 .text4{
 	font-size: 19px;
+	text-align: center;
+}
+#soci{
 	text-align: center;
 }

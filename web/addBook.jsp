@@ -82,8 +82,9 @@
                 <div>Năm xuất bản</div>
 		<input type="text" name="releasedYear" class="inputtext" placeholder="Năm xuất bản">
                 <div>URL ảnh</div>
-                <input type="file" id="iptImageURL" name="imageurl" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage')">
+                <input type="file" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage');jsSetAttribute('iptImageURL','value',jsImageURL);">
                 <div><img width="400" height="250" id="showImage" hidden="true" accept="image/*"></div>
+                <input type='text' id="iptImageURL" name="imageurl" class="inputtext" hidden='true'>
                 <div>Giá cuối(VND)</div>
 		<input id="asd" type="text" name="finalPrice" class="inputtext" placeholder="Giá cuối">
                 <div>Đã giảm giá (VND)</div>
