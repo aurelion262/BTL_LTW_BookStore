@@ -17,37 +17,7 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
-        <%--GENERAL NAVIGATION--%>
-        <a href="index.jsp">>>Trang chủ</a>
-        <%
-            response.setContentType("text/html;charset=UTF-8");
-            request.setCharacterEncoding("UTF-8");
-        %>
-        <%
-            if(session.getAttribute("account")!=null)
-            {
-        %>
-        <br>Hello, <%=((Account)session.getAttribute("account")).getUsername()%> (<a href="logout.jsp">Đăng xuất</a>/<a href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>">Chỉnh sửa hồ sơ</a>)
-        <%
-            }
-            else{
-        %>
-            <br><a href="register.jsp">Đăng ký</a>/<a href="login.jsp">Đăng nhập</a>
-        <%
-            }
-        %>
-        <%--ADMIN NAVIGATION--%>
-        <%
-            if(session.getAttribute("account")!=null)
-            {
-                if(((Account)session.getAttribute("account")).getRole().equals("ADMIN"))
-                {
-        %>
-        <br><a href="accountList.jsp">Danh sách tài khoản</a> / <a href="order.jsp">Danh sách đơn hàng</a> / <a href="log.jsp">Nhật ký hoạt động</a> / <a href="addBook.jsp">Thêm sách</a>
-        <%
-                }
-            }
-        %>
+        <%@ include file = "header.jsp" %>
         <%
             if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
             {
@@ -66,7 +36,6 @@
 		<input list="category" name="category" id="iptCategory" class="inputtext" placeholder="Thể loại">
                 <datalist id="category">
                     <%
-                        ArrayList<String> categoryList = new DAO().getCategory();
                         for(String s : categoryList)
                         {
                     %>
@@ -82,14 +51,14 @@
                 <div>Năm xuất bản</div>
 		<input type="text" name="releasedYear" class="inputtext" placeholder="Năm xuất bản">
                 <div>URL ảnh</div>
-                <input type="file" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage');jsSetAttribute('iptImageURL','value',jsImageURL);">
+                <input id="iptImage" type="file" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage');jsSetAttribute('iptImageURL','value',jsImageURL1);document.getElementById('iptImageURL').value='image/'+jsImageURL;">
                 <div><img width="400" height="250" id="showImage" hidden="true" accept="image/*"></div>
                 <input type='text' id="iptImageURL" name="imageurl" class="inputtext" hidden='true'>
                 <div>Giá cuối(VND)</div>
 		<input id="asd" type="text" name="finalPrice" class="inputtext" placeholder="Giá cuối">
                 <div>Đã giảm giá (VND)</div>
 		<input type="text" name="discount" class="inputtext" placeholder="Giảm giá">
-		<div class="centerHor">
+		<div style="padding: 14px" class="centerHor">
                     <input type="submit" value="Thêm sách" ></input>
 		</div>
             </div>
@@ -105,5 +74,6 @@
         {
             response.sendRedirect("index.jsp");
         }%>
+        <%@ include file = "footer.jsp" %>
     </body>
 </html>

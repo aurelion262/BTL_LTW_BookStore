@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var jsImageURL1;
 var jsImageURL;
 function jsSearchOption(option)
 {
@@ -59,8 +60,9 @@ function jsAppendAttribute(id,attribute,value)
 function jsUpdateImage(event,id)
 {
     jsRemoveAttribute(id,"hidden");
-    jsImageURL = URL.createObjectURL(event.target.files[0]);
-    document.getElementById(id).setAttribute("src",jsImageURL);
+    jsImageURL1 = window.URL.createObjectURL(event.target.files[0]);
+    jsImageURL = document.getElementById('iptImage').files[0].name;
+    document.getElementById(id).setAttribute("src",jsImageURL1);
 }
 
 function aloalo()

@@ -1,0 +1,55 @@
+#header{
+        font-family: comic sans ms;
+	width: 100%;
+	height: 100px;
+	background-color: white;
+}
+
+#frames{
+	width: 700px;
+	float: top;
+}
+#logo{
+	height: 100px;
+	width: 20%;
+	float: left;
+}
+#image{
+	height: 100px;
+	width: 90%;
+}
+#functionpart{
+	float: left;
+	width: 80%;
+}
+#infopart{
+        float:top;
+	height: 50px;
+	width: 100%;
+}
+#email{
+	float: left;
+	margin-left: 100px;
+	font-family: Verdana, sans-serif;
+}
+#sdt{
+	float: left;
+	margin-left: 100px;
+	font-family: Verdana, sans-serif;
+}
+#contactpart{
+	float: left;
+}
+#enterpagepart{
+        float:top;
+	float: right;
+}
+#searchbar{
+        float:top;
+	margin: auto;
+	width: 100%;
+}
+#extention{
+	margin: auto;
+	width: 60%;
+}

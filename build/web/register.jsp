@@ -14,6 +14,7 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
+        <%@ include file = "header.jsp" %>
         <%
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
@@ -59,7 +60,7 @@
                 <div>Credit card :</div>
 		<input type="text" name="creditcard" class="inputtext" placeholder="Thẻ tín dụng"
                        <% if(creditcard!=null) { %> value="<%=creditcard%>" <%}%>>
-		<div class="centerHor">
+		<div style="padding: 13px" class="centerHor">
                     <input type="submit" value="Đăng ký" ></input>
 		</div>
             </div>
@@ -70,5 +71,6 @@
             if(message!=null){ %>
                 <p><%=message%></p>
         <%}%>
+        <%@ include file = "footer.jsp" %>
     </body>
 </html>

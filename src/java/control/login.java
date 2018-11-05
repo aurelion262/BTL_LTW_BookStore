@@ -47,7 +47,8 @@ public class login extends HttpServlet {
             else
             {
                 request.setAttribute("message","Nhập sai tên tài khoản/mật khẩu. Vui lòng nhập lại !");
-                response.sendRedirect("login.jsp");
+                RequestDispatcher dpc = request.getRequestDispatcher("login.jsp");
+                dpc.forward(request, response);
             }
     }
 }

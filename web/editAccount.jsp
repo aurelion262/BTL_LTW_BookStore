@@ -16,37 +16,7 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
-        <%--GENERAL NAVIGATION--%>
-        <a href="index.jsp">>>Trang chủ</a>
-        <%
-            response.setContentType("text/html;charset=UTF-8");
-            request.setCharacterEncoding("UTF-8");
-        %>
-        <%
-            if(session.getAttribute("account")!=null)
-            {
-        %>
-        <br>Hello, <%=((Account)session.getAttribute("account")).getUsername()%> (<a href="logout.jsp">Đăng xuất</a>/<a href="editAccount.jsp?id=<%=((Account)session.getAttribute("account")).getId()%>">Chỉnh sửa hồ sơ</a>)
-        <%
-            }
-            else{
-        %>
-            <br><a href="register.jsp">Đăng ký</a>/<a href="login.jsp">Đăng nhập</a>
-        <%
-            }
-        %>
-        <%--ADMIN NAVIGATION--%>
-        <%
-            if(session.getAttribute("account")!=null)
-            {
-                if(((Account)session.getAttribute("account")).getRole().equals("ADMIN"))
-                {
-        %>
-        <br><a href="accountList.jsp">Danh sách tài khoản</a> / <a href="order.jsp">Danh sách đơn hàng</a> / <a href="log.jsp">Nhật ký hoạt động</a> / <a href="addBook.jsp">Thêm sách</a>
-        <%
-                }
-            }
-        %>
+        <%@ include file = "header.jsp" %>
         <%            
             if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN")
             ||((Account)(session.getAttribute("account"))).getId()==Integer.parseInt(request.getParameter("id")))
@@ -114,5 +84,6 @@
                     out.print("Không được dou");
             }
         %>
+        <%@ include file = "footer.jsp" %>
     </body>
 </html>

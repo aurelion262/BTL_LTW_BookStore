@@ -26,7 +26,7 @@ public class DAO {
     {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/bookstoreweb"
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookstoreweb"
             + "?useUnicode=true&characterEncoding=utf-8","root","0793145");
         } catch (Exception e) {
             e.printStackTrace();
@@ -694,5 +694,271 @@ public class DAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public void createOrder(Order o)
+    {
+        String sql = "INSERT INTO BOOKSTOREWEB.TBLORDER (ACCOUNTID, TOTALPRICE, ISDELIVERED, ISDELIVERING, ISPAID, CREATEDDATE, ADDRESS, PHONENUMBER, CLIENTNAME) "
+                   + "VALUES (?,?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, o.getAccountId());
+            ps.setInt(2, o.getTotalPrice());
+            ps.setInt(3, o.getIsDelivered());
+            ps.setInt(4, o.getIsDelivering());
+            ps.setInt(5, o.getIsPaid());
+            ps.setString(6, o.getCreatedDate());
+            ps.setString(7, o.getAddress());
+            ps.setString(8, o.getPhoneNumber());
+            ps.setString(9, o.getClientName());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public Order getOrder(int orderId)
+    {
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLORDER "
+                   + "WHERE ID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, orderId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                Order o = new Order();
+                o.setId(rs.getInt("ID"));
+                o.setAccountId(rs.getInt("ACCOUNTID"));
+                o.setAddress(rs.getString("ADDRESS"));
+                o.setCreatedDate(rs.getString("CREATEDDATE"));
+                o.setIsDelivered(rs.getInt("ISDELIVERED"));
+                o.setIsDelivering(rs.getInt("ISDELIVERING"));
+                o.setIsPaid(rs.getInt("ISPAID"));
+                o.setPhoneNumber(rs.getString("PHONENUMBER"));
+                o.setTotalPrice(rs.getInt("TOTALPRICE"));
+                return o;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<Order> getAllOrder()
+    {
+        ArrayList<Order> list = new ArrayList<>();
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLORDER";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                Order o = new Order();
+                o.setId(rs.getInt("ID"));
+                o.setClientName(rs.getString("CLIENTNAME"));
+                o.setAccountId(rs.getInt("ACCOUNTID"));
+                o.setAddress(rs.getString("ADDRESS"));
+                o.setCreatedDate(rs.getString("CREATEDDATE"));
+                o.setIsDelivered(rs.getInt("ISDELIVERED"));
+                o.setIsDelivering(rs.getInt("ISDELIVERING"));
+                o.setIsPaid(rs.getInt("ISPAID"));
+                o.setPhoneNumber(rs.getString("PHONENUMBER"));
+                o.setTotalPrice(rs.getInt("TOTALPRICE"));
+                list.add(o);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public ArrayList<Order> getAllOrder(int accountId)
+    {
+        ArrayList<Order> list = new ArrayList<>();
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLORDER "
+                   + "WHERE ACCOUNTID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                Order o = new Order();
+                o.setId(rs.getInt("ID"));
+                o.setAccountId(rs.getInt("ACCOUNTID"));
+                o.setAddress(rs.getString("ADDRESS"));
+                o.setCreatedDate(rs.getString("CREATEDDATE"));
+                o.setIsDelivered(rs.getInt("ISDELIVERED"));
+                o.setIsDelivering(rs.getInt("ISDELIVERING"));
+                o.setIsPaid(rs.getInt("ISPAID"));
+                o.setPhoneNumber(rs.getString("PHONENUMBER"));
+                o.setTotalPrice(rs.getInt("TOTALPRICE"));
+                list.add(o);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public Order getLastOrder(int accountId)
+    {
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLORDER WHERE ACCOUNTID=? ORDER BY ID DESC LIMIT 1";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                Order o = new Order();
+                o.setId(rs.getInt("ID"));
+                o.setAccountId(rs.getInt("ACCOUNTID"));
+                o.setAddress(rs.getString("ADDRESS"));
+                o.setCreatedDate(rs.getString("CREATEDDATE"));
+                o.setIsDelivered(rs.getInt("ISDELIVERED"));
+                o.setIsDelivering(rs.getInt("ISDELIVERING"));
+                o.setIsPaid(rs.getInt("ISPAID"));
+                o.setPhoneNumber(rs.getString("PHONENUMBER"));
+                o.setTotalPrice(rs.getInt("TOTALPRICE"));
+                return o;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public void addToOrder(BooksInOrder bio)
+    {
+        String sql = "INSERT INTO BOOKSTOREWEB.TBLBOOKSINORDER (ORDERID, BOOKID, QUANTITY) "
+                   + "VALUES (?,?,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, bio.getOrderId());
+            ps.setInt(2, bio.getBookId());
+            ps.setInt(3, bio.getQuantity());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void isDelivered(int orderId, int value)
+    {
+        String sql = "UPDATE BOOKSTOREWEB.TBLORDER "
+                   + "SET ISDELIVERED=? "
+                   + "WHERE ID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, value);
+            ps.setInt(2, orderId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void isPaid(int orderId, int value)
+    {
+        String sql = "UPDATE BOOKSTOREWEB.TBLORDER "
+                   + "SET ISPAID=? "
+                   + "WHERE ID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, value);
+            ps.setInt(2, orderId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void isDelivering(int orderId, int value)
+    {
+        String sql = "UPDATE BOOKSTOREWEB.TBLORDER "
+                   + "SET ISDELIVERING=? "
+                   + "WHERE ID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, value);
+            ps.setInt(2, orderId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public ArrayList<BooksInOrder> getAllFromOrder(int orderId)
+    {
+        ArrayList<BooksInOrder> list = new ArrayList<>();
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLBOOKSINORDER "
+                   + "WHERE ORDERID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, orderId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                BooksInOrder bio = new BooksInOrder();
+                bio.setBookId(rs.getInt("BOOKID"));
+                bio.setOrderId(rs.getInt("ORDERID"));
+                bio.setQuantity(rs.getInt("QUANTITY"));
+                list.add(bio);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public void addToFavorite(BooksInFavorite bif)
+    {
+        String sql = "INSERT INTO BOOKSTOREWEB.TBLBOOKSINFAVORITE (ACCOUNTID, BOOKID) "
+                   + "VALUES (?,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, bif.getAccountId());
+            ps.setInt(2, bif.getBookId());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeFromFavorite(int accountId, int bookId)
+    {
+        String sql = "DELETE FROM BOOKSTOREWEB.TBLBOOKSINFAVORITE "
+                   + "WHERE ACCOUNTID=? AND BOOKID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountId);
+            ps.setInt(2, bookId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public ArrayList<BooksInFavorite> getAllFromFavorite(int accountId)
+    {
+        ArrayList<BooksInFavorite> list = new ArrayList<>();
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLBOOKSINFAVORITE "
+                   + "WHERE ACCOUNTID=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, accountId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                BooksInFavorite bif = new BooksInFavorite();
+                bif.setBookId(rs.getInt("BOOKID"));
+                bif.setAccountId(rs.getInt("ACCOUNTID"));
+                list.add(bif);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

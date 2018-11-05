@@ -14,6 +14,7 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
+        <%@ include file = "header.jsp" %>
         <form method="POST" action="login">
         <div id="outsite">
             <div id="cover">
@@ -29,19 +30,20 @@
 		<input type="password" name="password" class="inputtext" placeholder="Mật khẩu">
                 <div id="more">
                     <div id="forgetpass">
-                        <a href="" class="linkmore">Quên mật khẩu</a>
+                        <a href="forgetPassword.jsp" class="linkmore">Quên mật khẩu</a>
                     </div>
                     
                     <div id="regisinlogin">
                         <a href="register.jsp" class="linkmore">Đăng ký</a>
                     </div>
                 </div>
-		<div class="centerHor">
+		<div style="padding: 13px" class="centerHor">
                     <input type="submit" value="Đăng nhập"></input>
 		</div>
             </div>
 	</div>
         </form>
         <%if(request.getAttribute("message")!=null) out.print(request.getAttribute("message"));%>
+        <%@ include file = "footer.jsp" %>
     </body>
 </html>
