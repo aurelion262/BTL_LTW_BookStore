@@ -3,16 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/bookDetail.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/doFeedback.java</file>
             <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/header.jsp</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/cart.java</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/removeFromFavorite.java</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/order.jsp</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/orderDetail.java</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/favoriteList.java</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/cart.jsp</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/favoriteList.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/css_home.css</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/feedBack.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/footer.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/header.css</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/addBook.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/model/DAO.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/editBook.jsp</file>
             <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/index.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/searchBook.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/bookDetail.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/doEditBook.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/build/web/css_detail.css</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/editBook.java</file>
         </group>
     </open-files>
 </project-private>

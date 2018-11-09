@@ -25,7 +25,7 @@
 			
 				<div id="contactpart">
 					<p id="email">Email: hieusachcu@gmail.com</p>
-					<p id="sdt">Contact: 0966017654</p>
+                                        <p id="sdt">Contact: 0966017654 / <a class="link" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')" href="feedBack.jsp">Góp ý</a></p>
 				</div>
         <%--GENERAL NAVIGATION--%>
                         <div id="inforpart">

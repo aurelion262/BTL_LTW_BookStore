@@ -961,4 +961,33 @@ public class DAO {
         }
         return list;
     }
+    
+    public void sendFeedback(Feedback f)
+    {
+        String sql = "INSERT INTO BOOKSTOREWEB.TBLFEEDBACK (ACCOUNTID, NAME, MESSAGE) "
+                   + "VALUES (?,?,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, f.getAccountId());
+            ps.setString(2, f.getName());
+            ps.setString(3, f.getMessage());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void sendFeedback(String name, String message)
+    {
+        String sql = "INSERT INTO BOOKSTOREWEB.TBLFEEDBACK (NAME, MESSAGE) "
+                   + "VALUES (?,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, message);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

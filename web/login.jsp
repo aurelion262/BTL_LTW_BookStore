@@ -14,7 +14,7 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
-        <%@ include file = "header.jsp" %>
+        
         <form method="POST" action="login">
         <div id="outsite">
             <div id="cover">
@@ -44,6 +44,6 @@
 	</div>
         </form>
         <%if(request.getAttribute("message")!=null) out.print(request.getAttribute("message"));%>
-        <%@ include file = "footer.jsp" %>
+        
     </body>
 </html>

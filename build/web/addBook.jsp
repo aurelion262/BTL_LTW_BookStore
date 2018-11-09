@@ -51,12 +51,12 @@
                 <div>Năm xuất bản</div>
 		<input type="text" name="releasedYear" class="inputtext" placeholder="Năm xuất bản">
                 <div>URL ảnh</div>
-                <input id="iptImage" type="file" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage');jsSetAttribute('iptImageURL','value',jsImageURL1);document.getElementById('iptImageURL').value='image/'+jsImageURL;">
-                <div><img width="400" height="250" id="showImage" hidden="true" accept="image/*"></div>
+                <input id="iptImage" type="file" accept="image/*" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage');jsSetAttribute('iptImageURL','value',jsImageURL1);document.getElementById('iptImageURL').value='image/'+jsImageURL;">
+                <div><img width="400" height="250" id="showImage" hidden="true" ></div>
                 <input type='text' id="iptImageURL" name="imageurl" class="inputtext" hidden='true'>
                 <div>Giá cuối(VND)</div>
 		<input id="asd" type="text" name="finalPrice" class="inputtext" placeholder="Giá cuối">
-                <div>Đã giảm giá (VND)</div>
+                <div>Chiếu khấu (VND)</div>
 		<input type="text" name="discount" class="inputtext" placeholder="Giảm giá">
 		<div style="padding: 14px" class="centerHor">
                     <input type="submit" value="Thêm sách" ></input>

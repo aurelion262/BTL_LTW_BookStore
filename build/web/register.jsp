@@ -14,7 +14,7 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
-        <%@ include file = "header.jsp" %>
+        
         <%
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
@@ -71,6 +71,6 @@
             if(message!=null){ %>
                 <p><%=message%></p>
         <%}%>
-        <%@ include file = "footer.jsp" %>
+        
     </body>
 </html>
