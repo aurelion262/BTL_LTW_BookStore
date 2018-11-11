@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `bookstoreweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-USE `bookstoreweb`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: bookstoreweb
@@ -71,7 +69,7 @@ CREATE TABLE `tblbook` (
   `FINALPRICE` int(15) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,7 +78,7 @@ CREATE TABLE `tblbook` (
 
 LOCK TABLES `tblbook` WRITE;
 /*!40000 ALTER TABLE `tblbook` DISABLE KEYS */;
-INSERT INTO `tblbook` VALUES (2,'Cái chết tựa như cơn gió','Da Thị Xua','RIOT','Kiếm hiệp','Luôn quanh ta',NULL,2000,'image/yasuo.jpg',50000,100000),(3,'Ái tình nơi đầu lưỡi','Jo Kyung Ran','Chưa cập nhật','Chưa cập nhật','Chưa cập nhật',NULL,2001,'image/aitinhnoidauluoi.jpg',30000,50000),(4,'A scent of water','Edward Earwood','NXB Giáo dục','Giáo dục','Bringing life back to the Christian school movement',NULL,1999,'image/ascentofwater.jpg',50000,150000),(5,'Chuyện con mèo dạy hải âu bay','Luis Sepúlveda','NXB Hội nhà văen','Tiểu thuyết','Con mòe',NULL,2007,'image/chuyenconmeodayhaiaubay.jpg',50000,50000),(6,'Chuyện kể năm 2000','Bùi Ngọc Tấn','NXB Thanh Niên','Ngụ ngôn','Những câu chuyện ngụ ngôn năm 2000',NULL,1997,'image/chuyenkenam2000.jpg',30000,70000),(7,'Có 2 con mèo ngồi bên cửa sổ','Nguyễn Nhật Ánh','NXB Trẻ','Tiểu thuyết','Cuộc đời của 2 chú mòe',NULL,1999,'image/cohaiconmeongoibencuaso.jpg',50000,150000),(8,'Có 2 con mèo ngồi bên cửa sổ','Nguyễn Nhật Ánh','NXB Trẻ','Tiểu thuyết','Cuộc đời của 2 chú mòe',NULL,1999,'image/cohaiconmeongoibencuaso.jpg',50000,150000),(9,'Còn chút gì để nhớ','Nguyễn Nhật Ánh','NXB Trẻ','Truyện ngắn','blah blah blah',NULL,1997,'image/conchutgidenho.jpg',0,70000),(10,'Còn chút gì để nhớ','Nguyễn Nhật Ánh','NXB Trẻ','Truyện ngắn','blah blah blah',NULL,1997,'image/conchutgidenho.jpg',0,70000),(11,'Còn chút gì để nhớ','Nguyễn Nhật Ánh','NXB Trẻ','Truyện ngắn','asdasd',NULL,1997,'image/conchutgidenho.jpg',0,70000),(12,'Dangerous Frames','Nicholas J.G.Winter','NXB Nước ngoài','Kĩ năng sống','How ideas about rage & gender shape public opinion',NULL,1977,'image/dangerousframes.jpg',0,170000),(13,'Đôi mắt không còn ướt nước','Chưa cập nhật','Chưa cập nhật','Tiểu thuyết','Chưa cập nhật',NULL,2001,'image/doimatkhongconuotnuoc.jpg',0,30000),(14,'Giấc mơ đôi chân thiên thần','Trần Trà My','NXB Lao Động','Truyện ngắn','Chưa cập nhật',NULL,1990,'image/giacmodoichanthienthan.jpg',0,70000),(15,'Invoker','In hữu cơ','VALVE','Giả tưởng','Hiểu biết là sức mạnh',NULL,2009,'image/invoker.jpg',0,190000),(16,'Invoker','In hữu cơ','VALVE','Giả tưởng','Hiểu biết là sức mạnh',NULL,2009,'image/invoker.jpg',0,190000),(21,'Yêu trên từng ngón tay','Trần Trà My','Chưa cập nhật','Tiểu thuyết','Chưa cập nhật',NULL,2007,'image/yeutrentungngontay.jpg',0,160000);
+INSERT INTO `tblbook` VALUES (2,'Cái chết tựa như cơn gió','Da Thị Xua','RIOT','Kiếm hiệp','Luôn quanh ta',NULL,2000,'image/yasuo.jpg',50000,100000),(3,'Ái tình nơi đầu lưỡi','Jo Kyung Ran','Chưa cập nhật','Chưa cập nhật','Chưa cập nhật',NULL,2001,'image/aitinhnoidauluoi.jpg',30000,50000),(4,'A scent of water','Edward Earwood','NXB Giáo dục','Giáo dục','Bringing life back to the Christian school movement',NULL,1999,'image/ascentofwater.jpg',50000,150000),(5,'Chuyện con mèo dạy hải âu bay','Luis Sepúlveda','NXB Hội nhà văen','Tiểu thuyết','Con mòe',NULL,2007,'image/chuyenconmeodayhaiaubay.jpg',50000,50000),(6,'Chuyện kể năm 2000','Bùi Ngọc Tấn','NXB Thanh Niên','Ngụ ngôn','Những câu chuyện ngụ ngôn năm 2000',NULL,1997,'image/chuyenkenam2000.jpg',30000,70000),(7,'Có 2 con mèo ngồi bên cửa sổ','Nguyễn Nhật Ánh','NXB Trẻ','Tiểu thuyết','Cuộc đời của 2 chú mòe',NULL,1999,'image/cohaiconmeongoibencuaso.jpg',50000,150000),(11,'Còn chút gì để nhớ','Nguyễn Nhật Ánh','NXB Trẻ','Truyện ngắn','asdasd',NULL,1997,'image/conchutgidenho.jpg',0,70000),(12,'Dangerous Frames','Nicholas J.G.Winter','NXB Nước ngoài','Kĩ năng sống','How ideas about rage & gender shape public opinion',NULL,1977,'image/dangerousframes.jpg',0,170000),(13,'Đôi mắt không còn ướt nước','Chưa cập nhật','Chưa cập nhật','Tiểu thuyết','Chưa cập nhật',NULL,2001,'image/doimatkhongconuotnuoc.jpg',0,30000),(14,'Giấc mơ đôi chân thiên thần','Trần Trà My','NXB Lao Động','Truyện ngắn','Chưa cập nhật',NULL,1990,'image/giacmodoichanthienthan.jpg',0,70000),(15,'Invoker','In hữu cơ','VALVE','Giả tưởng','Hiểu biết là sức mạnh',NULL,2009,'image/invoker.jpg',0,190000),(21,'Yêu trên từng ngón tay','Trần Trà My','Chưa cập nhật','Tiểu thuyết','Chưa cập nhật',NULL,2007,'image/yeutrentungngontay.jpg',0,160000);
 /*!40000 ALTER TABLE `tblbook` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +106,6 @@ CREATE TABLE `tblbooksincart` (
 
 LOCK TABLES `tblbooksincart` WRITE;
 /*!40000 ALTER TABLE `tblbooksincart` DISABLE KEYS */;
-INSERT INTO `tblbooksincart` VALUES (11,4,1);
 /*!40000 ALTER TABLE `tblbooksincart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +129,7 @@ CREATE TABLE `tblbooksinfavorite` (
 
 LOCK TABLES `tblbooksinfavorite` WRITE;
 /*!40000 ALTER TABLE `tblbooksinfavorite` DISABLE KEYS */;
-INSERT INTO `tblbooksinfavorite` VALUES (11,2);
+INSERT INTO `tblbooksinfavorite` VALUES (11,2),(11,5),(23,7);
 /*!40000 ALTER TABLE `tblbooksinfavorite` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,7 +155,7 @@ CREATE TABLE `tblbooksinorder` (
 
 LOCK TABLES `tblbooksinorder` WRITE;
 /*!40000 ALTER TABLE `tblbooksinorder` DISABLE KEYS */;
-INSERT INTO `tblbooksinorder` VALUES (4,4,1),(5,5,1);
+INSERT INTO `tblbooksinorder` VALUES (4,4,1),(5,5,1),(6,4,1);
 /*!40000 ALTER TABLE `tblbooksinorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,8 +169,10 @@ DROP TABLE IF EXISTS `tblfeedback`;
 CREATE TABLE `tblfeedback` (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
   `MESSAGE` longtext NOT NULL,
+  `NAME` varchar(255) DEFAULT NULL,
+  `ACCOUNTID` int(15) DEFAULT NULL,
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,6 +181,7 @@ CREATE TABLE `tblfeedback` (
 
 LOCK TABLES `tblfeedback` WRITE;
 /*!40000 ALTER TABLE `tblfeedback` DISABLE KEYS */;
+INSERT INTO `tblfeedback` VALUES (1,'alo',NULL,NULL);
 /*!40000 ALTER TABLE `tblfeedback` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +202,7 @@ CREATE TABLE `tbllog` (
   `DETAIL` longtext,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `tbllog` (
 
 LOCK TABLES `tbllog` WRITE;
 /*!40000 ALTER TABLE `tbllog` DISABLE KEYS */;
-INSERT INTO `tbllog` VALUES (2,'Mon Nov 05 02:38:25 ICT 2018',11,'BOOK',0,'ADD',NULL),(3,'Mon Nov 05 02:57:16 ICT 2018',11,'BOOK',0,'ADD',NULL),(4,'Mon Nov 05 03:23:42 ICT 2018',11,'BOOK',0,'ADD',NULL),(5,'Mon Nov 05 03:38:00 ICT 2018',11,'BOOK',0,'ADD',NULL),(6,'Mon Nov 05 04:08:02 ICT 2018',11,'BOOK',0,'ADD',NULL);
+INSERT INTO `tbllog` VALUES (2,'Mon Nov 05 02:38:25 ICT 2018',11,'BOOK',0,'ADD',NULL),(3,'Mon Nov 05 02:57:16 ICT 2018',11,'BOOK',0,'ADD',NULL),(4,'Mon Nov 05 03:23:42 ICT 2018',11,'BOOK',0,'ADD',NULL),(5,'Mon Nov 05 03:38:00 ICT 2018',11,'BOOK',0,'ADD',NULL),(6,'Mon Nov 05 04:08:02 ICT 2018',11,'BOOK',0,'ADD',NULL),(7,'Sun Nov 11 14:21:20 ICT 2018',11,'BOOK',0,'ADD',NULL),(8,'Sun Nov 11 14:26:37 ICT 2018',11,'BOOK',0,'ADD',NULL);
 /*!40000 ALTER TABLE `tbllog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -237,7 +237,7 @@ CREATE TABLE `tblorder` (
   UNIQUE KEY `ID` (`ID`),
   KEY `ACCOUNTID` (`ACCOUNTID`),
   CONSTRAINT `tblorder_ibfk_1` FOREIGN KEY (`ACCOUNTID`) REFERENCES `tblaccount` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -246,7 +246,7 @@ CREATE TABLE `tblorder` (
 
 LOCK TABLES `tblorder` WRITE;
 /*!40000 ALTER TABLE `tblorder` DISABLE KEYS */;
-INSERT INTO `tblorder` VALUES (4,11,'Mon Nov 05 18:35:54 ICT 2018','Hà Nội','0972644728',150000,0,0,0,'Trần Minh Hải'),(5,11,'Mon Nov 05 18:50:35 ICT 2018','HCM','0972644728',50000,0,0,0,'Trần Minh Hải');
+INSERT INTO `tblorder` VALUES (4,11,'Mon Nov 05 18:35:54 ICT 2018','Hà Nội','0972644728',150000,0,0,0,'Trần Minh Hải'),(5,11,'Mon Nov 05 18:50:35 ICT 2018','HCM','0972644728',50000,0,0,0,'Trần Minh Hải'),(6,11,'Tue Nov 06 10:54:18 ICT 2018','Hà Nội','0972644728',150000,0,0,0,'Trần Minh Hải');
 /*!40000 ALTER TABLE `tblorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,4 +267,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-05 22:22:45
+-- Dump completed on 2018-11-11 23:36:52
