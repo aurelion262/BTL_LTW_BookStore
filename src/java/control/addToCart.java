@@ -37,26 +37,34 @@ public class addToCart extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         HttpSession session = request.getSession();
-        int accountId = ((Account)session.getAttribute("account")).getId();
-        int bookId = Integer.parseInt(request.getParameter("bookId"));
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        BooksInCart bic = new BooksInCart();
-        DAO dao = new DAO();
-        if(dao.getFromCart(accountId, bookId)!=null)
+        Account sessionAccount = (Account)session.getAttribute("account");
+        if(sessionAccount!=null)
         {
-            bic = dao.getFromCart(accountId, bookId);
-            bic.setQuantity(bic.getQuantity()+quantity);
-            dao.editBooksInCart(bic);
+            int accountId = ((Account)session.getAttribute("account")).getId();
+            int bookId = Integer.parseInt(request.getParameter("bookId"));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            BooksInCart bic = new BooksInCart();
+            DAO dao = new DAO();
+            if(dao.getFromCart(accountId, bookId)!=null)
+            {
+                bic = dao.getFromCart(accountId, bookId);
+                bic.setQuantity(bic.getQuantity()+quantity);
+                dao.editBooksInCart(bic);
+            }
+            else
+            {
+                bic.setAccountId(accountId);
+                bic.setBookId(bookId);
+                bic.setQuantity(quantity);
+                dao.addToCart(bic);
+            }
+            dao.close();
+            RequestDispatcher dpc = request.getRequestDispatcher("cart");
+            dpc.forward(request, response);
         }
         else
         {
-            bic.setAccountId(accountId);
-            bic.setBookId(bookId);
-            bic.setQuantity(quantity);
-            dao.addToCart(bic);
+            response.sendRedirect("login.jsp");
         }
-        dao.close();
-        RequestDispatcher dpc = request.getRequestDispatcher("cart");
-        dpc.forward(request, response);
     }
 }

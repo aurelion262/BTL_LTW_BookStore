@@ -45,7 +45,7 @@ public class addToFavorite extends HttpServlet {
         }
         else
         {
-            response.sendRedirect("index");
+            response.sendRedirect("login.jsp");
         }
         dao.close();
     }
