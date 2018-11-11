@@ -33,7 +33,7 @@ public class doFeedback extends HttpServlet {
             int accountId;
             name = request.getParameter("name");
             message = request.getParameter("message");
-            accountId = Integer.parseInt(request.getParameter("accountId"));
+            if(!request.getParameter("accountId").equals("")) accountId = Integer.parseInt(request.getParameter("accountId"));
             String reply="";
             Account sessionAccount = (Account)session.getAttribute("account");
             if(sessionAccount==null)

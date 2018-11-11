@@ -29,6 +29,7 @@
             <div id="registertext" class="centerHor">
                 <div id="textre">Cập nhật sách</div>
             </div>
+                <input type="text" name="id" class="inputtext" hidden="true" value="<%=b.getId()%>">
 		<div>Tên sách</div>
 		<input type="text" name="name" class="inputtext" placeholder="Tên sách" value="<%=b.getName()%>">
 		<div>Tác giả</div>
@@ -53,7 +54,7 @@
 		<input type="text" name="releasedYear" class="inputtext" placeholder="Năm xuất bản" value="<%=b.getReleasedyear()%>">
                 <div>URL ảnh</div>
                 <input id="iptImage" type="file" accept="image/*" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage');jsSetAttribute('iptImageURL','value',jsImageURL1);document.getElementById('iptImageURL').value='image/'+jsImageURL;">
-                <div><img width="400" height="250" id="showImage" hidden="true"  src="<%=b.getImageurl()%>"></div>
+                <div><img width="400" height="250" id="showImage" src="<%=b.getImageurl()%>"></div>
                 <input type='text' id="iptImageURL" name="imageurl" class="inputtext" hidden='true' value="<%=b.getImageurl()%>">
                 <div>Giá cuối(VND)</div>
 		<input id="asd" type="text" name="finalPrice" class="inputtext" placeholder="Giá cuối" value="<%=b.getFinalprice()%>">

@@ -55,7 +55,7 @@ public class doEditBook extends HttpServlet {
                 new DAO().editBook(b);
                 message+="Cập nhật thành công </br>";
                 request.setAttribute("message", message);
-                RequestDispatcher dpc = request.getRequestDispatcher("editAccount.jsp?id="+id);
+                RequestDispatcher dpc = request.getRequestDispatcher("bookDetail?bookId="+id);
                 dpc.forward(request, response);
             }
             else

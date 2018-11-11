@@ -252,7 +252,7 @@ public class DAO {
     {
         String sql="UPDATE BOOKSTOREWEB.TBLBOOK "
                   +"SET NAME=?,AUTHOR=?,PUBLISHER=?,CATEGORY=?,DESCRIPTION=?, "
-                  +"IMAGERURL=?,RELEASEDYEAR=?,DISCOUNT=?,FINALPRICE=? "
+                  +"IMAGEURL=?,RELEASEDYEAR=?,DISCOUNT=?,FINALPRICE=? "
                   +"WHERE ID = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -265,6 +265,7 @@ public class DAO {
             ps.setInt(7, b.getReleasedyear());
             ps.setInt(8, b.getDiscount());
             ps.setInt(9, b.getFinalprice());
+            ps.setInt(10, b.getId());
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

@@ -39,7 +39,11 @@ public class deleteBook extends HttpServlet {
         if(a.getRole().equals("ADMIN"))
         {
             new DAO().removeBook(bookId);
-            response.sendRedirect(request.getHeader("referer"));
+            if(request.getParameter("turnBack")!=null)
+            {
+                response.sendRedirect(request.getHeader("referer"));
+            }
+            else response.sendRedirect("index");
         }
         else
         {

@@ -19,7 +19,7 @@
     <body>
         <%@ include file = "header.jsp" %>
         <%
-            if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
+            if(((Account)(session.getAttribute("account")))!=null&&((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
             {
         %>
         <form method="POST" action="addBook">
