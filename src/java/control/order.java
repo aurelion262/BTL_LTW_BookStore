@@ -50,6 +50,7 @@ public class order extends HttpServlet {
         }
         request.setAttribute("cart", cart);
         request.setAttribute("books", books);
+        dao.close();
         RequestDispatcher dpc = request.getRequestDispatcher("order.jsp");
         dpc.forward(request, response);
     }

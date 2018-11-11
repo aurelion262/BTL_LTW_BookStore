@@ -9,6 +9,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%
+        DAO dao = new DAO(); 
+    %>
     <head>
         <link rel="stylesheet" type="text/css" href="register.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,7 +25,7 @@
             ||((Account)(session.getAttribute("account"))).getId()==Integer.parseInt(request.getParameter("id")))
             {
             int id = Integer.parseInt((String)request.getParameter("id"));
-            Account a = new DAO().getAccount(id);
+            Account a = dao.getAccount(id);
             String url = "editAccount?id=" + a.getId();
         %>
         <form method="POST" action="<%=url%>">
@@ -85,5 +88,6 @@
             }
         %>
         <%@ include file = "footer.jsp" %>
+        <%dao.close();%>
     </body>
 </html>

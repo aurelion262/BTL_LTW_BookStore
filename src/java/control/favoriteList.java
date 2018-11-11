@@ -31,14 +31,15 @@ public class favoriteList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         if(session.getAttribute("account")!=null)
         {
             Account sessionAccount = (Account)session.getAttribute("account");
-            ArrayList<BooksInFavorite> bifList = new DAO().getAllFromFavorite(sessionAccount.getId());  
+            ArrayList<BooksInFavorite> bifList = dao.getAllFromFavorite(sessionAccount.getId());  
             ArrayList<Book> books = new ArrayList<>();
             for(BooksInFavorite bif : bifList)
             {
-                books.add(new DAO().getBook(bif.getBookId()));
+                books.add(dao.getBook(bif.getBookId()));
             }
             request.setAttribute("books", books);
             request.setAttribute("favoriteList", bifList);
@@ -49,5 +50,6 @@ public class favoriteList extends HttpServlet {
         {
             response.sendRedirect("index");
         }
+        dao.close();
     }
 }

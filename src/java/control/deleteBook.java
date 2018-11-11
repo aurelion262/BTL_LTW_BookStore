@@ -33,12 +33,15 @@ public class deleteBook extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         Account a = (Account)session.getAttribute("account");
         int bookId = Integer.parseInt(request.getParameter("bookId"));
         if(a.getRole().equals("ADMIN"))
         {
-            new DAO().removeBook(bookId);
+            dao.removeBook(bookId);
             if(request.getParameter("turnBack")!=null)
             {
                 response.sendRedirect(request.getHeader("referer"));
@@ -49,5 +52,6 @@ public class deleteBook extends HttpServlet {
         {
             response.sendRedirect("index");
         }
+        dao.close();
     }
 }

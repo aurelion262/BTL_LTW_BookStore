@@ -29,10 +29,11 @@ public class orderHistory extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         if(session.getAttribute("account")!=null)
         {
             Account sessionAccount = (Account)session.getAttribute("account");        
-            ArrayList<Order> orderList = new DAO().getAllOrder(sessionAccount.getId());
+            ArrayList<Order> orderList = dao.getAllOrder(sessionAccount.getId());
             request.setAttribute("orderList", orderList);
             RequestDispatcher dpc = request.getRequestDispatcher("orderHistory.jsp");
             dpc.forward(request, response);
@@ -41,5 +42,6 @@ public class orderHistory extends HttpServlet {
         {
             response.sendRedirect("index");
         }
+        dao.close();
     }
 }

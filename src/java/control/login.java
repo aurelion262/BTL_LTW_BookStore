@@ -35,8 +35,11 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        Account a = new DAO().getAccount((String)request.getParameter("username"),
+        DAO dao = new DAO();
+        Account a = dao.getAccount((String)request.getParameter("username"),
                                            (String)request.getParameter("password"));
             if(a!=null)
             {
@@ -50,5 +53,6 @@ public class login extends HttpServlet {
                 RequestDispatcher dpc = request.getRequestDispatcher("login.jsp");
                 dpc.forward(request, response);
             }
+        dao.close();
     }
 }

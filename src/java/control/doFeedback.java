@@ -29,6 +29,7 @@ public class doFeedback extends HttpServlet {
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
             HttpSession session = request.getSession();
+            DAO dao = new DAO();
             String name,message;
             int accountId;
             name = request.getParameter("name");
@@ -38,7 +39,7 @@ public class doFeedback extends HttpServlet {
             Account sessionAccount = (Account)session.getAttribute("account");
             if(sessionAccount==null)
             {                
-                new DAO().sendFeedback(name,message);
+                dao.sendFeedback(name,message);
             }
             else
             {
@@ -46,10 +47,11 @@ public class doFeedback extends HttpServlet {
                 f.setName(name);
                 f.setAccountId(accountId);
                 f.setMessage(message);
-                new DAO().sendFeedback(f);
+                dao.sendFeedback(f);
             }
             reply="Gửi thành công. Xin chân thành cảm ơn góp ý của bạn !";
             request.setAttribute("reply", reply);
+            dao.close();
             RequestDispatcher dpc = request.getRequestDispatcher("feedBack.jsp");
             dpc.forward(request, response);
     }

@@ -28,11 +28,12 @@ public class editBook extends HttpServlet {
         HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        DAO dao = new DAO();
         String message="";
             if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
             {
                 int id = Integer.parseInt((String)request.getParameter("id"));
-                Book b = new DAO().getBook(id);
+                Book b = dao.getBook(id);
                 request.setAttribute("book", b);
                 RequestDispatcher dpc = request.getRequestDispatcher("editBook.jsp");
                 dpc.forward(request, response);
@@ -41,5 +42,6 @@ public class editBook extends HttpServlet {
             {
                 response.sendRedirect("index");
             }
+        dao.close();
     }
 }

@@ -40,7 +40,7 @@ public class isPaid extends HttpServlet {
             {
                 dao.isPaid(orderId, 0);
             }
-        
+        dao.close();
         response.sendRedirect("orderList");
     }
 }

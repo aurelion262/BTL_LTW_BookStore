@@ -39,6 +39,7 @@ public class addBook extends HttpServlet {
         HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        DAO dao = new DAO();
         if(((Account)session.getAttribute("account")).getRole().equals("ADMIN")) // AUTHORIZE
         {
             Account sessionAccount = (Account)session.getAttribute("account");
@@ -64,7 +65,7 @@ public class addBook extends HttpServlet {
             b.setName(name);
             b.setPublisher(publisher);
             b.setReleasedyear(Integer.parseInt(releasedYear));
-            new DAO().addBook(b);
+            dao.addBook(b);
             
             
             String date = Calendar.getInstance().getTime().toString();
@@ -76,7 +77,7 @@ public class addBook extends HttpServlet {
             l.setAction(action);
             l.setObjectId(b.getId());
             l.setObjectType("BOOK");
-            new DAO().addLog(l);
+            dao.addLog(l);
             
             message+="Thêm sách thành công !";
             request.setAttribute("message", message);
@@ -84,5 +85,6 @@ public class addBook extends HttpServlet {
             dpc.forward(request, response);
         }
         else response.sendRedirect("index.jsp"); // AUTHORIZE
+        dao.close();
     }
 }

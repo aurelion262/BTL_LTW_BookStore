@@ -36,6 +36,7 @@ public class register extends HttpServlet {
             HttpSession session = request.getSession();
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
+            DAO dao = new DAO();
             String message="";
             String name = request.getParameter("name"),
                    username = request.getParameter("username"),
@@ -45,7 +46,7 @@ public class register extends HttpServlet {
                    address = request.getParameter("address"),
                    phonenumber = request.getParameter("phonenumber"),
                    creditcard = request.getParameter("creditcard");
-            if(new DAO().checkUsername(username).equals("available")
+            if(dao.checkUsername(username).equals("available")
                     &&!username.equals("")
                     &&!password.equals("")
                     &&password.equals(repassword))
@@ -58,14 +59,14 @@ public class register extends HttpServlet {
                 a.setPhonenumber(phonenumber);
                 a.setCreditcard(creditcard);
                 a.setEmail(email);
-                new DAO().addAccount(a);
-                session.setAttribute("account", new DAO().getAccount(a.getUsername()));
+                dao.addAccount(a);
+                session.setAttribute("account", dao.getAccount(a.getUsername()));
                 RequestDispatcher dpc = request.getRequestDispatcher("index.jsp");
                 dpc.forward(request, response);
             }
             else
             {
-                if(new DAO().checkUsername(username).equals("used"))
+                if(dao.checkUsername(username).equals("used"))
                 {
                     message+="Tên tài khoản này đã được sử dụng. Vui lòng chọn tên khác.</br>";
                 }
@@ -90,5 +91,6 @@ public class register extends HttpServlet {
                 RequestDispatcher dpc = request.getRequestDispatcher("register.jsp");
                 dpc.forward(request, response);
             }
+            dao.close();
     }
 }

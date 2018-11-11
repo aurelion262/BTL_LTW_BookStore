@@ -37,6 +37,7 @@ public class editAccount extends HttpServlet {
             HttpSession session = request.getSession();
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
+            DAO dao = new DAO();
             String message="";
             if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN")
              ||((Account)(session.getAttribute("account"))).getId()==Integer.parseInt(request.getParameter("id")))
@@ -68,11 +69,16 @@ public class editAccount extends HttpServlet {
                 }
                 a.setUsername(username);
                 a.setAddress(address);
-                new DAO().editAccount(a);
+                dao.editAccount(a);
                 message+="Cập nhật thành công </br>";
                 request.setAttribute("message", message);
                 RequestDispatcher dpc = request.getRequestDispatcher("editAccount.jsp?id="+id);
                 dpc.forward(request, response);
             }
+            else
+            {
+                response.sendRedirect("index");
+            }
+            dao.close();
     }
 }

@@ -39,10 +39,11 @@ public class orderList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         if(session.getAttribute("account")!=null && ((Account)session.getAttribute("account")).getRole().equals("ADMIN"))
         {
             Account sessionAccount = (Account)session.getAttribute("account");        
-            ArrayList<Order> orderList = new DAO().getAllOrder();
+            ArrayList<Order> orderList = dao.getAllOrder();
             request.setAttribute("orderList", orderList);
             RequestDispatcher dpc = request.getRequestDispatcher("orderList.jsp");
             dpc.forward(request, response);
@@ -51,6 +52,7 @@ public class orderList extends HttpServlet {
         {
             response.sendRedirect("index");
         }
+        dao.close();
     }
 
 }

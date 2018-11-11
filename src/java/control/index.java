@@ -36,10 +36,12 @@ public class index extends HttpServlet {
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        ArrayList<Book> saleOffList = new DAO().getSaleOffBook();
-        ArrayList<Book> bestSellingList = new DAO().getBestSellingBook();
+        DAO dao = new DAO();
+        ArrayList<Book> saleOffList = dao.getSaleOffBook();
+        ArrayList<Book> bestSellingList = dao.getBestSellingBook();
         request.setAttribute("saleOffList", saleOffList);
         request.setAttribute("bestSellingList", bestSellingList);
+        dao.close();
         RequestDispatcher dpc = request.getRequestDispatcher("index.jsp");
         dpc.forward(request, response);
     }

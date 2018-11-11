@@ -35,14 +35,20 @@ public class removeAccount extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
         {
             try {
-                    new DAO().removeAccount(Integer.parseInt(request.getParameter("id")));
+                    dao.removeAccount(Integer.parseInt(request.getParameter("id")));
                     response.sendRedirect("accountList");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
         }
+        else
+        {
+            response.sendRedirect("index");
+        }
+        dao.close();
     }
 }

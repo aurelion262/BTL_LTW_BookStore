@@ -37,13 +37,15 @@ public class accountList extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         if(((Account)session.getAttribute("account")).getRole().equals("ADMIN")) // AUTHORIZE
         {
-            ArrayList<Account> accountList = new DAO().getAccount();
+            ArrayList<Account> accountList = dao.getAccount();
             request.setAttribute("accountList", accountList);
             RequestDispatcher dpc = request.getRequestDispatcher("accountList.jsp");
             dpc.forward(request, response);
         }
         else response.sendRedirect("index.jsp");
+        dao.close();
     }
 }

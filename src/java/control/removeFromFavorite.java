@@ -27,16 +27,18 @@ public class removeFromFavorite extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         int bookId = Integer.parseInt(request.getParameter("bookId"));
         if(session.getAttribute("account")!=null)
         {
             Account sessionAccount = (Account)session.getAttribute("account");
-            new DAO().removeFromFavorite(sessionAccount.getId(),bookId);
+            dao.removeFromFavorite(sessionAccount.getId(),bookId);
             response.sendRedirect("favoriteList");
         }
         else
         {
             response.sendRedirect("index");
         }
+        dao.close();
     }
 }

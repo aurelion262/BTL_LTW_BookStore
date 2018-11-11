@@ -32,16 +32,17 @@ public class orderDetail extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         int orderId = Integer.parseInt(request.getParameter("orderId"));
         if(session.getAttribute("account")!=null)
         {
             Account sessionAccount = (Account)session.getAttribute("account");
-            Order o = new DAO().getOrder(orderId);
-            ArrayList<BooksInOrder> bioList = new DAO().getAllFromOrder(orderId);
+            Order o = dao.getOrder(orderId);
+            ArrayList<BooksInOrder> bioList = dao.getAllFromOrder(orderId);
             ArrayList<Book> books = new ArrayList<>();
             for(BooksInOrder bio : bioList)
             {
-                books.add(new DAO().getBook(bio.getBookId()));
+                books.add(dao.getBook(bio.getBookId()));
             }
             request.setAttribute("order", o);
             request.setAttribute("bioList", bioList);
@@ -53,6 +54,6 @@ public class orderDetail extends HttpServlet {
         {
             response.sendRedirect("index");
         }
-
+        dao.close();
     }
 }

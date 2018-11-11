@@ -38,6 +38,7 @@ public class isDelivered extends HttpServlet {
         {
             dao.isDelivered(orderId, 0);
         }
+        dao.close();
         response.sendRedirect("orderList");
     }
 }

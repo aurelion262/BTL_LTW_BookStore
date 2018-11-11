@@ -32,6 +32,7 @@ public class addToFavorite extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
+        DAO dao = new DAO();
         int bookId = Integer.parseInt(request.getParameter("bookId"));
         if(session.getAttribute("account")!=null)
         {
@@ -39,12 +40,13 @@ public class addToFavorite extends HttpServlet {
             BooksInFavorite bif = new BooksInFavorite();
             bif.setAccountId(sessionAccount.getId());
             bif.setBookId(bookId);
-            new DAO().addToFavorite(bif);
+            dao.addToFavorite(bif);
             response.sendRedirect("favoriteList");
         }
         else
         {
             response.sendRedirect("index");
         }
+        dao.close();
     }
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
+import model.Book;
 import model.BooksInCart;
 import model.BooksInOrder;
 import model.DAO;
@@ -47,6 +48,10 @@ public class createOrder extends HttpServlet {
         ArrayList<BooksInCart> bicList = dao.getAllFromCart(sessionAccount.getId());
         for(BooksInCart bic : bicList)
         {
+            Book b = new Book();
+            b = dao.getBook(bic.getBookId());
+            b.setSold(b.getSold()+bic.getQuantity());
+            dao.editBook(b);
             BooksInOrder bio = new BooksInOrder();
             bio.setBookId(bic.getBookId());
             bio.setOrderId(dao.getLastOrder(sessionAccount.getId()).getId());
@@ -54,6 +59,7 @@ public class createOrder extends HttpServlet {
             dao.addToOrder(bio);
         }
         dao.removeAllFromCart(sessionAccount.getId());
+        dao.close();
         response.sendRedirect("orderHistory");
     }
 }

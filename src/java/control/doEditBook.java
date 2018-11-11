@@ -28,6 +28,7 @@ public class doEditBook extends HttpServlet {
         HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        DAO dao = new DAO();
         String message="";
             if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
             {
@@ -52,7 +53,7 @@ public class doEditBook extends HttpServlet {
                 b.setReleasedyear(releasedYear);
                 b.setFinalprice(finalPrice);
                 b.setDiscount(discount);
-                new DAO().editBook(b);
+                dao.editBook(b);
                 message+="Cập nhật thành công </br>";
                 request.setAttribute("message", message);
                 RequestDispatcher dpc = request.getRequestDispatcher("bookDetail?bookId="+id);
@@ -62,5 +63,6 @@ public class doEditBook extends HttpServlet {
             {
                 response.sendRedirect("index");
             }
+            dao.close();
     }
 }

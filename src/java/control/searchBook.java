@@ -84,6 +84,7 @@ public class searchBook extends HttpServlet {
             }
             request.setAttribute("bookList", bookList);
             session.setAttribute("searchOption", searchOption);   
+            dao.close();
             RequestDispatcher dpc = request.getRequestDispatcher("searchBook.jsp");
             dpc.forward(request, response);
     }

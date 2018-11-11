@@ -55,6 +55,7 @@ public class addToCart extends HttpServlet {
             bic.setQuantity(quantity);
             dao.addToCart(bic);
         }
+        dao.close();
         RequestDispatcher dpc = request.getRequestDispatcher("cart");
         dpc.forward(request, response);
     }

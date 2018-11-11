@@ -12,7 +12,8 @@
 <!DOCTYPE html>
 <html>
     <%
-        Book b = new DAO().getBook(Integer.parseInt(request.getParameter("bookId")));
+        DAO dao = new DAO();    
+        Book b = dao.getBook(Integer.parseInt(request.getParameter("bookId")));
     %>
     <head>
         <link rel="stylesheet" type="text/css" href="css_detail.css">
@@ -68,6 +69,7 @@
 			<p id="descontent"><%=b.getDescription()%></p>
 	</div>
         </div>
+        <%dao.close();%>
 	<%@ include file = "footer.jsp" %>
     </body>
 </html>

@@ -33,9 +33,13 @@ public class bookDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         int bookId = Integer.parseInt(request.getParameter("bookId"));
-        Book b = new DAO().getBook(bookId);
+        DAO dao = new DAO();
+        Book b = dao.getBook(bookId);
         request.setAttribute("book", b);
+        dao.close();
         RequestDispatcher dpc = request.getRequestDispatcher("bookDetail.jsp");
         dpc.forward(request, response);
     }

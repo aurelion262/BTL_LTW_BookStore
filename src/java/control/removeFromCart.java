@@ -31,9 +31,11 @@ public class removeFromCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        DAO dao = new DAO();
         int accountId = Integer.parseInt(request.getParameter("accountId"));
         int bookId = Integer.parseInt(request.getParameter("bookId"));
-        new DAO().removeFromCart(accountId, bookId);
+        dao.removeFromCart(accountId, bookId);
+        dao.close();
         response.sendRedirect("cart");
     }
 }

@@ -12,7 +12,8 @@
         <%
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
-//            Account sessionAccount = (Account)session.getAttribute("account");
+//            Account sessionAccount = (Account)session.getAttribute("account");  
+            DAO headerDAO = new DAO();
         %>
         
         <div id="header">
@@ -72,7 +73,7 @@
                                     <input style="font-family: comic sans ms" list="author" name="author" id="iptAuthor" placeholder="Nhập tác giả" hidden="true" value=''>
                                     <datalist id="author">
                                         <%
-                                            ArrayList<String> authorList = new DAO().getAuthor();
+                                            ArrayList<String> authorList = headerDAO.getAuthor();
                                             for(String s : authorList)
                                             {
                                         %>
@@ -84,7 +85,7 @@
                                     <input style="font-family: comic sans ms" list="category" name="category" id="iptCategory" placeholder="Nhập thể loại" hidden="true" value=''>
                                     <datalist id="category">
                                         <%
-                                            ArrayList<String> categoryList = new DAO().getCategory();
+                                            ArrayList<String> categoryList = headerDAO.getCategory();
                                             for(String s : categoryList)
                                             {
                                         %>
@@ -99,3 +100,4 @@
                         </div>
             </div>
         </div>
+        <%headerDAO.close();%>

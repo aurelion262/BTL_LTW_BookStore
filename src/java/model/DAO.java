@@ -33,6 +33,21 @@ public class DAO {
         }
     }
     
+    public void close()
+    {
+        if (conn != null)
+        {
+            try
+            {
+                conn.close();
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+    
     public String checkUsername(String s)
     {
         String sql="SELECT * FROM BOOKSTOREWEB.TBLACCOUNT WHERE USERNAME=?";
