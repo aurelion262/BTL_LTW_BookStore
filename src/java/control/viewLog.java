@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Calendar;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,12 +14,8 @@ import model.Account;
 import model.DAO;
 import model.Log;
 
-/**
- *
- * @author i1vag_000
- */
-@WebServlet(name="deleteBook", urlPatterns={"/deleteBook"})
-public class deleteBook extends HttpServlet {
+@WebServlet(name="viewLog", urlPatterns={"/viewLog"})
+public class viewLog extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,32 +31,16 @@ public class deleteBook extends HttpServlet {
         HttpSession session = request.getSession();
         DAO dao = new DAO();
         Account sessionAccount = (Account)session.getAttribute("account");
-        int bookId = Integer.parseInt(request.getParameter("bookId"));
         if(sessionAccount.getRole().equals("ADMIN"))
-        {
-            dao.removeBook(bookId);
-            
-            String date = Calendar.getInstance().getTime().toString();
-            String action = "REMOVE";
-            int accountId = sessionAccount.getId();
-            Log l = new Log();
-            l.setAccountId(accountId);
-            l.setDate(date);
-            l.setAction(action);
-            l.setObjectId(bookId);
-            l.setObjectType("BOOK");
-            dao.addLog(l);
-            
-            if(request.getParameter("turnBack")!=null)
-            {
-                response.sendRedirect(request.getHeader("referer"));
-            }
-            else response.sendRedirect("index");
+        {        
+            ArrayList<Log> logList = dao.getLog();
+            request.setAttribute("logList", logList);
+            RequestDispatcher dpc = request.getRequestDispatcher("log.jsp");
+            dpc.forward(request, response);
         }
         else
         {
             response.sendRedirect("index");
         }
-        dao.close();
     }
 }

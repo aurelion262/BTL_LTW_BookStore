@@ -8,6 +8,7 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
 import model.DAO;
+import model.Log;
 
 /**
  *
@@ -37,10 +39,11 @@ public class editAccount extends HttpServlet {
             HttpSession session = request.getSession();
             response.setContentType("text/html;charset=UTF-8");
             request.setCharacterEncoding("UTF-8");
+            Account sessionAccount = (Account)session.getAttribute("account");
             DAO dao = new DAO();
             String message="";
-            if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN")
-             ||((Account)(session.getAttribute("account"))).getId()==Integer.parseInt(request.getParameter("id")))
+            if(sessionAccount.getRole().equals("ADMIN")
+             ||sessionAccount.getId()==Integer.parseInt(request.getParameter("id")))
             {
                 String name = request.getParameter("name"),
                        username = request.getParameter("username"),
@@ -59,7 +62,7 @@ public class editAccount extends HttpServlet {
                 a.setEmail(email);
                 a.setPassword(password);
                 a.setPhonenumber(phonenumber);
-                if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
+                if(sessionAccount.getRole().equals("ADMIN"))
                 {
                     a.setRole(role);
                 }
@@ -70,6 +73,18 @@ public class editAccount extends HttpServlet {
                 a.setUsername(username);
                 a.setAddress(address);
                 dao.editAccount(a);
+                
+                String date = Calendar.getInstance().getTime().toString();
+                String action = "EDIT";
+                int accountId = sessionAccount.getId();
+                Log l = new Log();
+                l.setAccountId(accountId);
+                l.setDate(date);
+                l.setAction(action);
+                l.setObjectId(id);
+                l.setObjectType("ACCOUNT");
+                dao.addLog(l);
+                
                 message+="Cập nhật thành công </br>";
                 request.setAttribute("message", message);
                 RequestDispatcher dpc = request.getRequestDispatcher("editAccount.jsp?id="+id);

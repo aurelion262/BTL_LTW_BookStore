@@ -75,7 +75,7 @@ public class addBook extends HttpServlet {
             l.setAccountId(accountId);
             l.setDate(date);
             l.setAction(action);
-            l.setObjectId(b.getId());
+            l.setObjectId(dao.getLastBook().getId());
             l.setObjectType("BOOK");
             dao.addLog(l);
             

@@ -17,12 +17,12 @@
     </head>
     <body>
         <%@ include file = "header.jsp" %>
+        <center>
         <p>Danh sách tài khoản :</p>
-        <table>
+        <table style="text-align: center;">
             <tr>
                 <th>ID</th>
                 <th>USERNAME</th>
-                <th>PASSWORD</th>
                 <th>ROLE</th>
                 <th>NAME</th>
                 <th>EMAIL</th>
@@ -49,7 +49,6 @@
             <tr>
                 <td><%= a.getId() %></td>
                 <td><%= a.getUsername()%></td>
-                <td><%= a.getPassword()%></td>
                 <td><%= a.getRole()%></td>
                 <td><%= a.getName()%></td>
                 <td><%= a.getEmail()%></td>
@@ -69,6 +68,6 @@
             </tr>
         <%}%>
         </table>
-        <%@ include file = "footer.jsp" %>
+        </center>
     </body>
 </html>

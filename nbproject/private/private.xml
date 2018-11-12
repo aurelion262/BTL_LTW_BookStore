@@ -3,10 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/addToCart.java</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/addToFavorite.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/removeAccount.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/header.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/addBook.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/doEditBook.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/log.jsp</file>
             <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/deleteBook.java</file>
-            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/login.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/isDelivered.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/orderList.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/editAccount.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/isDelivering.java</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/web/accountList.jsp</file>
+            <file>file:/C:/Users/Jichu/Documents/GitHub/BTL_LTW_BookStore/src/java/control/isPaid.java</file>
         </group>
     </open-files>
 </project-private>

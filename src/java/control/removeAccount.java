@@ -8,6 +8,7 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
 import model.DAO;
+import model.Log;
 
 /**
  *
@@ -36,10 +38,23 @@ public class removeAccount extends HttpServlet {
     throws ServletException, IOException {
         HttpSession session = request.getSession();
         DAO dao = new DAO();
-        if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
+        Account sessionAccount = (Account)session.getAttribute("account");
+        if(sessionAccount.getRole().equals("ADMIN"))
         {
             try {
                     dao.removeAccount(Integer.parseInt(request.getParameter("id")));
+                    
+                    String date = Calendar.getInstance().getTime().toString();
+                    String action = "REMOVE";
+                    int accountId = sessionAccount.getId();
+                    Log l = new Log();
+                    l.setAccountId(accountId);
+                    l.setDate(date);
+                    l.setAction(action);
+                    l.setObjectId(Integer.parseInt(request.getParameter("id")));
+                    l.setObjectType("ACCOUNT");
+                    dao.addLog(l);
+                    
                     response.sendRedirect("accountList");
                 } catch (Exception e) {
                     e.printStackTrace();

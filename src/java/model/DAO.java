@@ -530,6 +530,33 @@ public class DAO {
         return list;
     }
     
+    public Book getLastBook()
+    {
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLBOOK ORDER BY ID DESC LIMIT 1";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                Book b = new Book();
+                b.setId(rs.getInt("ID"));
+                b.setAuthor(rs.getString("AUTHOR"));
+                b.setCategory(rs.getString("CATEGORY"));
+                b.setDescription(rs.getString("DESCRIPTION"));
+                b.setDiscount(rs.getInt("DISCOUNT"));
+                b.setFinalprice(rs.getInt("FINALPRICE"));
+                b.setImageurl(rs.getString("IMAGEURL"));
+                b.setName(rs.getString("NAME"));
+                b.setPublisher(rs.getString("PUBLISHER"));
+                b.setReleasedyear(rs.getInt("RELEASEDYEAR"));
+                return b;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public ArrayList<String> getCategory()
     {
         ArrayList<String> list = new ArrayList<>();
