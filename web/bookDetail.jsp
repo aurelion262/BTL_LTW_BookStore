@@ -58,7 +58,7 @@
                 <div class="infors">
 			<p id="nhaxb">
 		<form method='POST' action='addToCartServlet?bookId=<%=b.getId()%>'>
-                Số lượng : <input id="iptQuantity" name="quantity" type="number" value="1" style="width: 30px">
+                Số lượng : <input onkeypress="return isNumberKey(event)" min="1" id="iptQuantity" name="quantity" type="number" value="1" style="width: 30px">
                 <input type="image" src="icon/cart.png">
                 </div>
                 </form>
