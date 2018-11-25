@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `bookstoreweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+USE `bookstoreweb`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: bookstoreweb
@@ -27,7 +29,6 @@ CREATE TABLE `tblaccount` (
   `NAME` varchar(255) DEFAULT NULL,
   `ADDRESS` varchar(255) DEFAULT NULL,
   `PHONENUMBER` varchar(255) DEFAULT NULL,
-  `CREDITCARD` varchar(255) DEFAULT NULL,
   `USERNAME` varchar(255) NOT NULL,
   `PASSWORD` varchar(255) NOT NULL,
   `ROLE` varchar(255) DEFAULT 'CLIENT',
@@ -35,7 +36,7 @@ CREATE TABLE `tblaccount` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`),
   UNIQUE KEY `USERNAME` (`USERNAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +45,7 @@ CREATE TABLE `tblaccount` (
 
 LOCK TABLES `tblaccount` WRITE;
 /*!40000 ALTER TABLE `tblaccount` DISABLE KEYS */;
-INSERT INTO `tblaccount` VALUES (1,'ADMIN','','','','ADMIN','ADMIN','ADMIN',''),(11,'Trần Minh Hải','Hà Nội','0972644728','','hai262','2621997','ADMIN','i1.vagabondwolf@gmail.com'),(23,'Trần Văn Tét','','','','test','test','CLIENT',''),(24,'Lê Văn Thắng','','','','thangle1202','123456','ADMIN',''),(25,'','','','','servlet','servlet','CLIENT','');
+INSERT INTO `tblaccount` VALUES (1,'ADMIN','','','ADMIN','ADMIN','ADMIN',''),(11,'Trần Minh Hải','Hà Nội','0972644728','hai262','2621997','ADMIN','i1.vagabondwolf@gmail.com'),(23,'Trần Văn Tét','','','test','test','CLIENT',''),(24,'Lê Văn Thắng','','','thangle1202','123456','ADMIN','');
 /*!40000 ALTER TABLE `tblaccount` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,6 +94,7 @@ CREATE TABLE `tblbooksincart` (
   `ACCOUNTID` int(10) DEFAULT NULL,
   `BOOKID` int(10) DEFAULT NULL,
   `QUANTITY` int(10) DEFAULT NULL,
+  `ID` int(11) DEFAULT NULL,
   KEY `ACCOUNTID` (`ACCOUNTID`),
   KEY `BOOKID` (`BOOKID`),
   CONSTRAINT `booksincart_ibfk_1` FOREIGN KEY (`ACCOUNTID`) REFERENCES `tblaccount` (`id`),
@@ -202,7 +204,7 @@ CREATE TABLE `tbllog` (
   `DETAIL` longtext,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +213,7 @@ CREATE TABLE `tbllog` (
 
 LOCK TABLES `tbllog` WRITE;
 /*!40000 ALTER TABLE `tbllog` DISABLE KEYS */;
-INSERT INTO `tbllog` VALUES (2,'Mon Nov 05 02:38:25 ICT 2018',11,'BOOK',0,'ADD',NULL),(3,'Mon Nov 05 02:57:16 ICT 2018',11,'BOOK',0,'ADD',NULL),(4,'Mon Nov 05 03:23:42 ICT 2018',11,'BOOK',0,'ADD',NULL),(5,'Mon Nov 05 03:38:00 ICT 2018',11,'BOOK',0,'ADD',NULL),(6,'Mon Nov 05 04:08:02 ICT 2018',11,'BOOK',0,'ADD',NULL),(7,'Sun Nov 11 14:21:20 ICT 2018',11,'BOOK',0,'ADD',NULL),(8,'Sun Nov 11 14:26:37 ICT 2018',11,'BOOK',0,'ADD',NULL);
+INSERT INTO `tbllog` VALUES (2,'Mon Nov 05 02:38:25 ICT 2018',11,'BOOK',0,'ADD',NULL),(3,'Mon Nov 05 02:57:16 ICT 2018',11,'BOOK',0,'ADD',NULL),(4,'Mon Nov 05 03:23:42 ICT 2018',11,'BOOK',0,'ADD',NULL),(5,'Mon Nov 05 03:38:00 ICT 2018',11,'BOOK',0,'ADD',NULL),(6,'Mon Nov 05 04:08:02 ICT 2018',11,'BOOK',0,'ADD',NULL),(7,'Sun Nov 11 14:21:20 ICT 2018',11,'BOOK',0,'ADD',NULL),(8,'Sun Nov 11 14:26:37 ICT 2018',11,'BOOK',0,'ADD',NULL),(9,'Sun Nov 25 06:32:03 ICT 2018',1,'ACCOUNT',26,'REMOVE',NULL),(10,'Sun Nov 25 06:32:48 ICT 2018',1,'ACCOUNT',25,'REMOVE',NULL),(11,'Sun Nov 25 06:50:50 ICT 2018',1,'ACCOUNT',27,'REMOVE',NULL);
 /*!40000 ALTER TABLE `tbllog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-11 23:36:52
+-- Dump completed on 2018-11-25  9:17:11
