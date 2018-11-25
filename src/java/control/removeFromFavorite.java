@@ -37,7 +37,7 @@ public class removeFromFavorite extends HttpServlet {
         }
         else
         {
-            response.sendRedirect("index");
+            response.sendRedirect("indexServlet");
         }
         dao.close();
     }

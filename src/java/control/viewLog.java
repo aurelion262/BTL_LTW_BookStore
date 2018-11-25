@@ -40,7 +40,7 @@ public class viewLog extends HttpServlet {
         }
         else
         {
-            response.sendRedirect("index");
+            response.sendRedirect("indexServlet");
         }
     }
 }

@@ -11,7 +11,7 @@ package model;
  */
 public class Account {
     private int id;
-    private String name,address,phonenumber,email,creditcard,username, password, role;
+    private String name,address,phonenumber,email,username, password, role;
 
     public String getName() {
         return name;
@@ -45,16 +45,6 @@ public class Account {
         this.email = email;
     }
 
-    public String getCreditcard() {
-        return creditcard;
-    }
-
-    public void setCreditcard(String creditcard) {
-        this.creditcard = creditcard;
-    }
-    
-    
-    
     public int getId() {
         return id;
     }

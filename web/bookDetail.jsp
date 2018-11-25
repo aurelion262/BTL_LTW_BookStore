@@ -31,11 +31,11 @@
                 if(sessionAccount!=null&&sessionAccount.getRole().equals("ADMIN"))
                 {
             %>
-                    <p class="infors"><a class="link" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')" href="deleteBook?bookId=<%=b.getId()%>&searchOption=<%=session.getAttribute("searchOption")%>&bookName=<%=session.getAttribute("bookName")%>&author=<%=session.getAttribute("author")%>&category=<%=session.getAttribute("category")%>&ceilingPrice=<%=session.getAttribute("ceilingPrice")%>&floorPrice=<%=session.getAttribute("floorPrice")%>">Xoá</a>/<a class="link" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')" href="editBook?id=<%=b.getId()%>">Sửa</a></p>
+                    <p class="infors"><a class="link" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')" onclick="return confirm('Xác nhận xóa ?')" href="deleteBookServlet?bookId=<%=b.getId()%>&searchOption=<%=session.getAttribute("searchOption")%>&bookName=<%=session.getAttribute("bookName")%>&author=<%=session.getAttribute("author")%>&category=<%=session.getAttribute("category")%>&ceilingPrice=<%=session.getAttribute("ceilingPrice")%>&floorPrice=<%=session.getAttribute("floorPrice")%>">Xoá</a>/<a class="link" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')" href="editBook?id=<%=b.getId()%>">Sửa</a></p>
             <%
                 }
             %>
-                <p class="tensach"><%=b.getName()%><a href="addToFavorite?bookId=<%=b.getId()%>"><img src="icon/heart.png" style="height:30px; width: 30px"></a></p>
+                <p class="tensach"><%=b.getName()%><a href="addToFavoriteServlet?bookId=<%=b.getId()%>"><img src="icon/heart.png" style="height:30px; width: 30px"></a></p>
 
 		<div class="infors">
 				<p id="tacgia">Tác giả: <span><%=b.getAuthor()%></span></p>	
@@ -57,7 +57,7 @@
 		</div>
                 <div class="infors">
 			<p id="nhaxb">
-		<form method='POST' action='addToCart?bookId=<%=b.getId()%>'>
+		<form method='POST' action='addToCartServlet?bookId=<%=b.getId()%>'>
                 Số lượng : <input id="iptQuantity" name="quantity" type="number" value="1" style="width: 30px">
                 <input type="image" src="icon/cart.png">
                 </div>

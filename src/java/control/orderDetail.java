@@ -52,7 +52,7 @@ public class orderDetail extends HttpServlet {
         }
         else
         {
-            response.sendRedirect("index");
+            response.sendRedirect("indexServlet");
         }
         dao.close();
     }

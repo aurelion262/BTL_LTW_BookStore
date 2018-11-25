@@ -64,8 +64,8 @@ public class DAO {
     
     public void addAccount(Account a)
     {
-        String sql="INSERT INTO BOOKSTOREWEB.TBLACCOUNT(NAME,USERNAME,PASSWORD,PHONENUMBER,ADDRESS,EMAIL,CREDITCARD) "
-                 + "VALUES(?,?,?,?,?,?,?)";
+        String sql="INSERT INTO BOOKSTOREWEB.TBLACCOUNT(NAME,USERNAME,PASSWORD,PHONENUMBER,ADDRESS,EMAIL) "
+                 + "VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, a.getName());
@@ -74,7 +74,6 @@ public class DAO {
             ps.setString(4, a.getPhonenumber());
             ps.setString(5, a.getAddress());
             ps.setString(6, a.getEmail());
-            ps.setString(7, a.getCreditcard());
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,7 +83,7 @@ public class DAO {
     public void editAccount(Account a)
     {
         String sql="UPDATE BOOKSTOREWEB.TBLACCOUNT "
-                  +"SET NAME=?,USERNAME=?,PASSWORD=?,PHONENUMBER=?,ADDRESS=?,EMAIL=?,CREDITCARD=?,ROLE=? "
+                  +"SET NAME=?,USERNAME=?,PASSWORD=?,PHONENUMBER=?,ADDRESS=?,EMAIL=?,ROLE=? "
                   +"WHERE ID = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -94,9 +93,8 @@ public class DAO {
             ps.setString(4, a.getPhonenumber());
             ps.setString(5, a.getAddress());
             ps.setString(6, a.getEmail());
-            ps.setString(7, a.getCreditcard());
-            ps.setString(8, a.getRole());
-            ps.setInt(9, a.getId());
+            ps.setString(7, a.getRole());
+            ps.setInt(8, a.getId());
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -130,7 +128,6 @@ public class DAO {
                 a.setPassword(rs.getString("PASSWORD"));
                 a.setRole(rs.getString("ROLE"));
                 a.setAddress(rs.getString("ADDRESS"));
-                a.setCreditcard(rs.getString("CREDITCARD"));
                 a.setEmail(rs.getString("EMAIL"));
                 a.setName(rs.getString("NAME"));
                 a.setPhonenumber(rs.getString("PHONENUMBER"));
@@ -159,7 +156,6 @@ public class DAO {
                 a.setPassword(rs.getString("PASSWORD"));
                 a.setRole(rs.getString("ROLE"));
                 a.setAddress(rs.getString("ADDRESS"));
-                a.setCreditcard(rs.getString("CREDITCARD"));
                 a.setEmail(rs.getString("EMAIL"));
                 a.setName(rs.getString("NAME"));
                 a.setPhonenumber(rs.getString("PHONENUMBER"));
@@ -186,7 +182,6 @@ public class DAO {
                 a.setPassword(rs.getString("PASSWORD"));
                 a.setRole(rs.getString("ROLE"));
                 a.setAddress(rs.getString("ADDRESS"));
-                a.setCreditcard(rs.getString("CREDITCARD"));
                 a.setEmail(rs.getString("EMAIL"));
                 a.setName(rs.getString("NAME"));
                 a.setPhonenumber(rs.getString("PHONENUMBER"));
@@ -213,7 +208,6 @@ public class DAO {
                 a.setPassword(rs.getString("PASSWORD"));
                 a.setRole(rs.getString("ROLE"));
                 a.setAddress(rs.getString("ADDRESS"));
-                a.setCreditcard(rs.getString("CREDITCARD"));
                 a.setEmail(rs.getString("EMAIL"));
                 a.setName(rs.getString("NAME"));
                 a.setPhonenumber(rs.getString("PHONENUMBER"));
@@ -240,6 +234,59 @@ public class DAO {
             e.printStackTrace();
         }
         return id;
+    }
+    
+    public void addCategory(Category c)
+    {
+        String sql="INSERT INTO BOOKSTOREWEB.CATEGORY(NAME) "
+                 + "VALUES(?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, c.getName());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public Category getCategory(String category)
+    {
+        String sql = "SELECT * FROM BOOKSTOREWEB.CATEGORY WHERE NAME=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, category);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                Category c = new Category();
+                c.setId(rs.getInt("ID"));
+                c.setName(rs.getString("NAME"));
+                return c;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ArrayList<Category> getAllCategory()
+    {
+        ArrayList<Category> list = new ArrayList<>();
+        String sql = "SELECT * FROM BOOKSTOREWEB.TBLCATEGORY";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next())
+            {
+                Category c = new Category();
+                c.setId(rs.getInt("ID"));
+                c.setName(rs.getString("USERNAME"));
+                list.add(c);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
     
     public void addBook(Book b)

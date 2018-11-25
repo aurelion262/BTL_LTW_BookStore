@@ -46,7 +46,7 @@
                                     
 					<div class="block">
 						<div id="cover">
-                                                    <a href="bookDetail?bookId=<%=books.get(dex).getId()%>"><img src="<%=books.get(dex).getImageurl()%>" class="biasach"></a>
+                                                    <a href="bookDetailServlet?bookId=<%=books.get(dex).getId()%>"><img src="<%=books.get(dex).getImageurl()%>" class="biasach"></a>
 						</div>
 
 						<div id="inforsach">
@@ -54,7 +54,7 @@
                                                         <div class="inforline">Tác giả : <%=books.get(dex).getAuthor()%></div>
                                                         <div class="inforline">Thể loại : <%=books.get(dex).getCategory()%></div>
 							<div class="inforline">Đơn giá : <%=books.get(dex).getFinalprice()%> VNĐ</div>	
-                                                        <div class="inforline"><a class="link" href="addToCart?bookId=<%=books.get(dex).getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="50px" height="50px"></a><a href="removeFromFavorite?bookId=<%=books.get(dex).getId()%>"><img style="width: 35px; height: 35px; margin-bottom: 6px" src="icon/cancel.png"></a></div>
+                                                        <div class="inforline"><a class="link" href="addToCartServlet?bookId=<%=books.get(dex).getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="50px" height="50px"></a><a href="removeFromFavorite?bookId=<%=books.get(dex).getId()%>"><img style="width: 35px; height: 35px; margin-bottom: 6px" src="icon/cancel.png"></a></div>
 						</div>						
 						<div class="ket">
 							<hr size="1" color="black">

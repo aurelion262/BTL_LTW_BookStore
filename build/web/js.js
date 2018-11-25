@@ -5,6 +5,54 @@
  */
 var jsImageURL1;
 var jsImageURL;
+var regexAlert='';
+
+function testRegex(type,elementId)
+{
+    var value = document.getElementById(elementId).value;
+    var regex;
+    if(type==='email')
+    {
+        regex = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm;
+        if(!regex.test(value)) regexAlert+="Email không đúng định dạng\n";
+        return regex.test(value);
+    }
+    if(type==='phoneNumber')
+    {
+        if(!(value.length===10&&value.substring(0,1)==='0')) regexAlert+="Chỉ chấp nhận số điện thoại di động của Việt Nam\n";
+        return(value.length===10&&value.substring(0,1)==='0');
+    }
+    if(type==='username')
+    {
+        regex = /^[\w]{6,18}$/;
+        if(!regex.test(value)) regexAlert+="Tên tài khoản phải dài từ 6-18 kí tự, chỉ bao gồm chữ, số và dấu _\n";
+        return regex.test(value);
+    }
+    if(type==='password')
+    {
+        if(document.getElementById('iptPassword').value!==document.getElementById('iptRepassword')) regexAlert+="Mật khẩu không trùng khớp\n";
+        regex = /^.{6,30}$/;
+        if(!regex.test(value)) regexAlert+="Mật khẩu phải dài từ 6-30 kí tự\n";
+        return regex.test(value);
+    }
+}
+
+function registerInputCheck()
+{   
+    testRegex('username','iptUsername');
+    testRegex('password','iptPassword');
+    testRegex('email','iptEmail');
+    testRegex('phoneNumber','iptPhoneNumber');    
+    
+    if(regexAlert!=='')
+    {
+        alert(regexAlert);
+        regexAlert='';
+        return false;
+    }
+    else return true;
+}
+
 function jsSearchOption(option)
 {
     if(option==='name')

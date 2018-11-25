@@ -19,7 +19,7 @@
         %>
         Hãy để lại góp ý của bạn với chúng tôi !
         <div>
-        <form method="POST" action="doFeedback">
+        <form method="POST" action="feedbackServlet">
             <div>Để lại góp ý dưới tên : <input type="text" name="name" placeholder="Tên của bạn..." <% if(sessionAccount!=null) {%> value="<%=sessionAccount.getName()%>" disabled="true"<%}%>>
             <input type="text" name="accountId" <% if(sessionAccount!=null) {%> value="<%=sessionAccount.getId()%>"<%}%> hidden="true">
             <div><textarea rows="4" cols="50" name="feedback"></textarea></div>

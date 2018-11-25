@@ -26,7 +26,7 @@
             {
             int id = Integer.parseInt((String)request.getParameter("id"));
             Account a = dao.getAccount(id);
-            String url = "editAccount?id=" + a.getId();
+            String url = "editAccountServlet?id=" + a.getId();
         %>
         <form method="POST" action="<%=url%>">
         <div id="outsite">
@@ -55,9 +55,6 @@
                 <div>Địa chỉ</div>
 		<input type="text" name="address" class="inputtext" placeholder="Địa chỉ nơi ở"
                        <% if (a.getAddress()!=null) { %>value="<%=a.getAddress()%>" <%}%>>
-                <div>Credit card :</div>
-		<input type="text" name="creditcard" class="inputtext" placeholder="Thẻ tín dụng"
-                       <% if (a.getCreditcard()!=null) { %>value="<%=a.getCreditcard()%>" <%}%>>
                 <%
                     if(((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
                     {

@@ -40,7 +40,7 @@ public class editBook extends HttpServlet {
             }
             else
             {
-                response.sendRedirect("index");
+                response.sendRedirect("indexServlet");
             }
         dao.close();
     }

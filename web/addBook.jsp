@@ -22,7 +22,7 @@
             if(((Account)(session.getAttribute("account")))!=null&&((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
             {
         %>
-        <form method="POST" action="addBook">
+        <form method="POST" action="addBookServlet">
         <div id="outsite">
         <div id="cover">
             <div id="registertext" class="centerHor">
@@ -72,7 +72,7 @@
         <%}
         else
         {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("indexServlet");
         }%>
         <%@ include file = "footer.jsp" %>
     </body>

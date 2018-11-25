@@ -24,7 +24,7 @@
 		<div id="text2">
                         <%
                             ArrayList<Book> saleOffList = (ArrayList<Book>)request.getAttribute("saleOffList");
-                            if(saleOffList==null) response.sendRedirect("index");
+                            if(saleOffList==null) response.sendRedirect("indexServlet");
                         %>
 			<a href="" class="link"><div id="discounttext">Đang khuyến mãi</div></a>
 			
@@ -40,11 +40,11 @@
                     %>
 			<div class="abook">
                             
-                            <a class="link" href="bookDetail?bookId=<%=b.getId()%>"><image src="<%=b.getImageurl()%>" class="book"></image></a>
+                            <a class="link" href="bookDetailServlet?bookId=<%=b.getId()%>"><image src="<%=b.getImageurl()%>" class="book"></image></a>
 				
-                            <div id="bookname"><a class="link" href="bookDetail?bookId=<%=b.getId()%>" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><%=b.getName()%></a><a href="addToFavorite?bookId=<%=b.getId()%>"><img src="icon/heart.png" style="height:30px; width: 30px"></a></div>
+                            <div id="bookname"><a class="link" href="bookDetailServlet?bookId=<%=b.getId()%>" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><%=b.getName()%></a><a href="addToFavoriteServlet?bookId=<%=b.getId()%>"><img src="icon/heart.png" style="height:30px; width: 30px"></a></div>
                                 <div style="float:right">
-                                    <a class="link" href="addToCart?bookId=<%=b.getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="65px" height="65px"></a>
+                                    <a class="link" href="addToCartServlet?bookId=<%=b.getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="65px" height="65px"></a>
                                 </div>
                                 <div style="float:right;padding-top: 8px">
                                     <div id="newprice"><%=b.getFinalprice()%><span> VND</span></div>
@@ -81,12 +81,12 @@
                         %>
 			<div class="abook">
                             
-				<a class="link" href="bookDetail?bookId=<%=b.getId()%>"><image src="<%=b.getImageurl()%>" class="book"></image></a>
+				<a class="link" href="bookDetailServlet?bookId=<%=b.getId()%>"><image src="<%=b.getImageurl()%>" class="book"></image></a>
 				
-					<div id="bookname"><a class="link" href="bookDetail?bookId=<%=b.getId()%>" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><%=b.getName()%></a><a href="addToFavorite?bookId=<%=b.getId()%>"><img src="icon/heart.png" style="height:30px; width: 30px"></a></div>
+					<div id="bookname"><a class="link" href="bookDetailServlet?bookId=<%=b.getId()%>" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><%=b.getName()%></a><a href="addToFavoriteServlet?bookId=<%=b.getId()%>"><img src="icon/heart.png" style="height:30px; width: 30px"></a></div>
 				
 				<div style="float:right">
-                                    <a class="link" href="addToCart?bookId=<%=b.getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="65px" height="65px"></a>
+                                    <a class="link" href="addToCartServlet?bookId=<%=b.getId()%>&quantity=1" onmouseover="this.setAttribute('style','text-decoration:underline')" onmouseout="this.setAttribute('style','text-decoration:none')"><img src="icon/cart.png" width="65px" height="65px"></a>
                                 </div>
                                 <div style="float:right;padding-top: 8px">
                                     <div id="newprice"><%=b.getFinalprice()%><span> VND</span></div>

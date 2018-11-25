@@ -15,14 +15,14 @@
     </head>
     <body>
         
-        <form method="POST" action="login">
+        <form method="POST" action="loginServlet">
         <div id="outsite">
             <div id="cover">
             <div id="registertext" class="centerHor">
                 <div id="textre">Đăng nhập</div>
             </div>
 		<div id="framefb">
-                    <a href="index.jsp" class="centerHor" id="fbtext">Trở về trang chủ</a>
+                    <a href="indexServlet" class="centerHor" id="fbtext">Trở về trang chủ</a>
 		</div>
 		<div>Tài khoản</div>
 		<input type="text" name="username" class="inputtext" placeholder="Tài khoản">

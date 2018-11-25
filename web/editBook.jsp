@@ -23,7 +23,7 @@
         <%
             Book b = (Book)request.getAttribute("book");
         %>
-        <form method="POST" action="doEditBook">
+        <form method="POST" action="editBookServlet">
         <div id="outsite">
         <div id="cover">
             <div id="registertext" class="centerHor">

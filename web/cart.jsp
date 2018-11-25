@@ -46,7 +46,7 @@
                                     
 					<div class="block">
 						<div id="cover">
-                                                    <a href="bookDetail?bookId=<%=books.get(dex).getId()%>"><img src="<%=books.get(dex).getImageurl()%>" class="biasach"></a>
+                                                    <a href="bookDetailServlet?bookId=<%=books.get(dex).getId()%>"><img src="<%=books.get(dex).getImageurl()%>" class="biasach"></a>
 						</div>
 
 						<div id="inforsach">
