@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `bookstoreweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
-USE `bookstoreweb`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: bookstoreweb
@@ -94,7 +92,8 @@ CREATE TABLE `tblbooksincart` (
   `ACCOUNTID` int(10) DEFAULT NULL,
   `BOOKID` int(10) DEFAULT NULL,
   `QUANTITY` int(10) DEFAULT NULL,
-  `ID` int(11) DEFAULT NULL,
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  UNIQUE KEY `ID` (`ID`),
   KEY `ACCOUNTID` (`ACCOUNTID`),
   KEY `BOOKID` (`BOOKID`),
   CONSTRAINT `booksincart_ibfk_1` FOREIGN KEY (`ACCOUNTID`) REFERENCES `tblaccount` (`id`),
@@ -269,4 +268,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-25  9:17:11
+-- Dump completed on 2018-11-25 10:11:50
