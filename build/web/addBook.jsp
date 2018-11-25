@@ -17,23 +17,36 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
-        <%@ include file = "header.jsp" %>
-        <%
+        <%            
             if(((Account)(session.getAttribute("account")))!=null&&((Account)(session.getAttribute("account"))).getRole().equals("ADMIN"))
             {
         %>
-        <form method="POST" action="addBookServlet">
+        <div style="width: 20%; float: left">
+            <%@ include file = "adminSideBar.jsp" %>
+        </div>
+        <div style="width: 80%; float: left">
+        <form method="POST" action="addBookServlet" onsubmit="addBookInputCheck(); return alertRegex();">
         <div id="outsite">
         <div id="cover">
             <div id="registertext" class="centerHor">
                 <div id="textre">Thêm sách</div>
             </div>
 		<div>Tên sách</div>
-		<input type="text" name="name" class="inputtext" placeholder="Tên sách">
+		<input id="iptName" type="text" name="name" class="inputtext" placeholder="Tên sách">
 		<div>Tác giả</div>
-		<input type="text" name="author" class="inputtext" placeholder="Tác giả">
+		<input list="author" id="iptAuthorr" type="text" name="author" class="inputtext" placeholder="Tác giả">
+                <datalist id="author">
+                    <%
+                        for(String s : authorList)
+                        {
+                    %>
+                    <option value="<%=s%>">
+                    <%
+                        }
+                    %>
+                </datalist>
 		<div>Thể loại</div>
-		<input list="category" name="category" id="iptCategory" class="inputtext" placeholder="Thể loại">
+		<input list="category" name="category" id="iptCategoryy" class="inputtext" placeholder="Thể loại" value="Chưa cập nhật">
                 <datalist id="category">
                     <%
                         for(String s : categoryList)
@@ -45,19 +58,19 @@
                     %>
                 </datalist>
 		<div>Nhà xuất bản</div>
-		<input type="text" name="publisher" class="inputtext" placeholder="Nhà xuất bản">
+		<input id="iptPublisher" type="text" name="publisher" class="inputtext" placeholder="Nhà xuất bản">
                 <div>Mô tả</div>
-		<input type="text" name="description" class="inputtext" placeholder="Mô tả">
+		<input id="iptDescription" type="text" name="description" class="inputtext" placeholder="Mô tả">
                 <div>Năm xuất bản</div>
-		<input type="text" name="releasedYear" class="inputtext" placeholder="Năm xuất bản">
+		<input id="iptReleasedYear" type="number" min="0" name="releasedYear" class="inputtext" placeholder="Năm xuất bản" onkeypress="return isNumberKey(event)">
                 <div>URL ảnh</div>
                 <input id="iptImage" type="file" accept="image/*" class="inputtext" placeholder="URL ảnh" onchange="jsUpdateImage(event,'showImage');jsSetAttribute('iptImageURL','value',jsImageURL1);document.getElementById('iptImageURL').value='image/'+jsImageURL;">
                 <div><img width="400" height="250" id="showImage" hidden="true" ></div>
                 <input type='text' id="iptImageURL" name="imageurl" class="inputtext" hidden='true'>
                 <div>Giá cuối(VND)</div>
-		<input id="asd" type="text" name="finalPrice" class="inputtext" placeholder="Giá cuối">
+		<input id="iptFinalPrice" type="number" min="0" name="finalPrice" class="inputtext" placeholder="Giá cuối" onkeypress="return isNumberKey(event)" value="0">
                 <div>Chiếu khấu (VND)</div>
-		<input type="text" name="discount" class="inputtext" placeholder="Giảm giá">
+		<input id="iptDiscount" type="number" min="0" name="discount" class="inputtext" placeholder="Giảm giá" onkeypress="return isNumberKey(event)" value="0">
 		<div style="padding: 14px" class="centerHor">
                     <input type="submit" value="Thêm sách" ></input>
 		</div>
@@ -69,11 +82,11 @@
             if(message!=null){ %>
                 <p><%=message%></p>
         <%}%>
+        </div>
         <%}
         else
         {
             response.sendRedirect("indexServlet");
         }%>
-        <%@ include file = "footer.jsp" %>
     </body>
 </html>

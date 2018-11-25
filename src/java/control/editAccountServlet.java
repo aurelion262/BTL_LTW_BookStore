@@ -71,6 +71,7 @@ public class editAccountServlet extends HttpServlet {
                 a.setUsername(username);
                 a.setAddress(address);
                 dao.editAccount(a);
+                session.setAttribute("account", a);
                 
                 String date = Calendar.getInstance().getTime().toString();
                 String action = "EDIT";

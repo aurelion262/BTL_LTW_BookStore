@@ -4,6 +4,7 @@
     Author     : i1vag_000
 --%>
 
+<%@page import="javax.websocket.SendResult"%>
 <%@page import="model.DAO"%>
 <%@page import="model.Account"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +16,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="register.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Chỉnh sửa thông tin tài khoản</title>
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
@@ -28,7 +29,7 @@
             Account a = dao.getAccount(id);
             String url = "editAccountServlet?id=" + a.getId();
         %>
-        <form method="POST" action="<%=url%>">
+        <form method="POST" action="<%=url%>" onsubmit="return registerInputCheck()">
         <div id="outsite">
         <div id="cover">
             <div id="registertext" class="centerHor">
@@ -38,19 +39,20 @@
 		<input type="text" name="name" class="inputtext" placeholder="Tên người dùng..."
                        <% if (a.getName()!=null) { %>value="<%=a.getName()%>" <%}%>>
 		<div>Tài khoản (*)</div>
-		<input type="text" name="username" class="inputtext" placeholder="Tên tài khoản"
-                       <% if (a.getUsername()!=null) { %>value="<%=a.getUsername()%>" <%}%>>
+		<input id="iptUsername" type="text" name="username" class="inputtext" placeholder="Tên tài khoản"
+                       <% if (a.getUsername()!=null) { %>value="<%=a.getUsername()%>" <%}%>
+                       disabled="true">
 		<div>Mật khẩu (*)</div>
-		<input type="password" name="password" class="inputtext" placeholder="Mật khẩu"
+		<input id="iptPassword" type="password" name="password" class="inputtext" placeholder="Mật khẩu"
                        <% if (a.getPassword()!=null) { %>value="<%=a.getPassword()%>" <%}%>>
 		<div>Nhập lại mật khẩu (*)</div>
-		<input type="password" name="repassword" class="inputtext" placeholder="Nhập lại mật khẩu"
+		<input id="iptRepassword" type="password" name="repassword" class="inputtext" placeholder="Nhập lại mật khẩu"
                        <% if (a.getPassword()!=null) { %>value="<%=a.getPassword()%>" <%}%>>
                 <div>Email</div>
-		<input type="text" name="email" class="inputtext" placeholder="Địa chỉ email"
+		<input id="iptEmail" type="text" name="email" class="inputtext" placeholder="Địa chỉ email"
                        <% if (a.getEmail()!=null) { %>value="<%=a.getEmail()%>" <%}%>>
                 <div>Số điện thoại</div>
-		<input type="text" name="phonenumber" class="inputtext" placeholder="SĐT"
+		<input id="iptPhoneNumber" type="text" name="phonenumber" class="inputtext" placeholder="SĐT"
                        <% if (a.getPhonenumber()!=null) { %>value="<%=a.getPhonenumber()%>" <%}%>>
                 <div>Địa chỉ</div>
 		<input type="text" name="address" class="inputtext" placeholder="Địa chỉ nơi ở"
@@ -81,7 +83,7 @@
         }
             else
             {
-                    out.print("Không được dou");
+                    response.sendRedirect("indexServlet");
             }
         %>
         <%@ include file = "footer.jsp" %>

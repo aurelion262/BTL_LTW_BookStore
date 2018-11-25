@@ -57,11 +57,11 @@
 		</div>
                 <div class="infors">
 			<p id="nhaxb">
-		<form method='POST' action='addToCartServlet?bookId=<%=b.getId()%>'>
+                        <form onsubmit="testRegex('quantity','iptQuantity'); return alertRegex();" method='POST' action='addToCartServlet?bookId=<%=b.getId()%>'>
                 Số lượng : <input onkeypress="return isNumberKey(event)" min="1" id="iptQuantity" name="quantity" type="number" value="1" style="width: 30px">
                 <input type="image" src="icon/cart.png">
-                </div>
-                </form>
+                        </form>
+                </div>                
                         </p>
         </div>
         <div id="desbook">

@@ -88,11 +88,7 @@
 					<div id="vat">
 						<p>(Đã bao gồm VAT)</p>
 					</div>
-					<div>
-					<input type="text" name="" placeholder="Mã giảm giá">
-					<button>Áp dụng </button>
-					<img src="icon/tick.png" id="tick">
-					</div>
+					
 					<div id="giao">
 						<img src="icon/giao.png">
 					</div>
@@ -104,7 +100,7 @@
 				</div>
 
 				<div id="order">
-                                    <a href="order"><img style="padding-bottom: 90px" src="icon/dat_hang.png"></a>
+                                    <a href="order" <% if (cart.isEmpty()) {%> onclick="alert('Giỏ hàng rỗng'); return false;" <% } %>><img style="padding-bottom: 90px" src="icon/dat_hang.png"></a>
 				</div>
 			</div>
 		</div>

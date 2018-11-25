@@ -16,7 +16,10 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
-        <%@ include file = "header.jsp" %>
+        <div style="width: 20%; float: left">
+            <%@ include file = "adminSideBar.jsp" %>
+        </div>
+        <div style="width: 80%; float: left">
         <center>
         <p>Danh sách tài khoản :</p>
         <table style="text-align: center;">
@@ -67,5 +70,6 @@
         <%}%>
         </table>
         </center>
+        </div>
     </body>
 </html>

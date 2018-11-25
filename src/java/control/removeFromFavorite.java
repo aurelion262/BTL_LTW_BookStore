@@ -33,7 +33,7 @@ public class removeFromFavorite extends HttpServlet {
         {
             Account sessionAccount = (Account)session.getAttribute("account");
             dao.removeFromFavorite(sessionAccount.getId(),bookId);
-            response.sendRedirect("favoriteList");
+            response.sendRedirect("favoriteServlet");
         }
         else
         {

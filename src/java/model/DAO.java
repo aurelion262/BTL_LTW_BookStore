@@ -80,6 +80,25 @@ public class DAO {
         }
     }
     
+    public void addStaff(Account a)
+    {
+        String sql="INSERT INTO BOOKSTOREWEB.TBLACCOUNT(NAME,USERNAME,PASSWORD,PHONENUMBER,ADDRESS,EMAIL,ROLE) "
+                 + "VALUES(?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, a.getName());
+            ps.setString(2, a.getUsername());
+            ps.setString(3, a.getPassword());
+            ps.setString(4, a.getPhonenumber());
+            ps.setString(5, a.getAddress());
+            ps.setString(6, a.getEmail());
+            ps.setString(7, a.getRole());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void editAccount(Account a)
     {
         String sql="UPDATE BOOKSTOREWEB.TBLACCOUNT "

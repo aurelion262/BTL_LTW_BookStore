@@ -20,13 +20,20 @@
         <script type="text/javascript" src="js.js"></script>
     </head>
     <body>
-        <%@ include file = "header.jsp" %>
-             
-        <div id="body">
+        <div style="width: 20%; float: left">
+            <%@ include file = "adminSideBar.jsp" %>
+        </div>
+        <div style="width: 80%; float: left">   
+        <div style="font-family: Calibri;
+	clear: left;
+	width: 100%;
+	margin: auto;
+	height: 670px;
+	background-color: #d0b795;">
 		
 			<div class="contentlist">
 				<div class="text1">
-					<p id="giotext">Lịch sử đơn hàng </p>
+					<p id="giotext">Danh sách đơn hàng </p>
 					<div id="gioimage">
 						<img src="icon/list.png" style="height: 70px; width: 70px">
 					</div>
@@ -36,7 +43,7 @@
                                             <img style="height: 72px; width: 72px; margin-right: 40px;" src="icon/delivered.png" title="Nhận hàng">
                                         </div>
 				</div>
-                                <div class="ket">
+                                <div class="ket" style="padding-top: 3px">
 							<hr size="1" color="black">
                                 </div>
                                 <div id="ngoai">
@@ -122,7 +129,6 @@
 			</div>
 			
 	</div>
-
-	<%@ include file = "footer.jsp" %>
+        </div>
     </body>
 </html>

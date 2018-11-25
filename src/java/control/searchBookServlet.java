@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Account;
 import model.Book;
 import model.DAO;
 
@@ -85,7 +86,19 @@ public class searchBookServlet extends HttpServlet {
             request.setAttribute("bookList", bookList);
             session.setAttribute("searchOption", searchOption);   
             dao.close();
-            RequestDispatcher dpc = request.getRequestDispatcher("searchBook.jsp");
-            dpc.forward(request, response);
+            
+            if(((Account)session.getAttribute("account"))!=null
+                &&((Account)session.getAttribute("account")).getRole().equals("ADMIN")
+                &&request.getParameter("adminCP")!=null
+                &&request.getParameter("adminCP").equals("true"))
+            {
+                RequestDispatcher dpc = request.getRequestDispatcher("manageBook.jsp");
+                dpc.forward(request, response);
+            }
+            else
+            {
+                RequestDispatcher dpc = request.getRequestDispatcher("searchBook.jsp");
+                dpc.forward(request, response);
+            }
     }
 }

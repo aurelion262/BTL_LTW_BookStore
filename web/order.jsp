@@ -94,13 +94,13 @@
 
 					<div>
 						<div>
-                                                        <form method="POST" action="createOrder" id="orderDetail">
+                                                        <form method="POST" action="createOrder" id="orderDetail" onsubmit="testRegex('isEmpty','iptName'); testRegex('phoneNumber','iptPhoneNumber'); testRegex('isEmpty','iptAddress'); return alertRegex();">
 							<p>Họ và tên</p>
-							<input name="clientName" type="text" class="input" value="<%=sessionAccount.getName()%>">
+							<input id="iptName" name="clientName" type="text" class="input" value="<%=sessionAccount.getName()%>">
 							<p>Số điện thoại</p>
-							<input name="phoneNumber" type="text" class="input" value="<%=sessionAccount.getPhonenumber()%>">
+							<input id="iptPhoneNumber" name="phoneNumber" type="text" class="input" value="<%=sessionAccount.getPhonenumber()%>">
 							<p>Địa chỉ</p>                                                      
-                                                        <textarea name="address" rows="4" cols="50" class="input" form="orderDetail"><%=sessionAccount.getAddress()%></textarea> 
+                                                        <textarea id="iptAddress" name="address" rows="4" cols="50" class="input" form="orderDetail"><%=sessionAccount.getAddress()%></textarea> 
                                                         <input name="totalPrice" type="text" value=<%=total%> hidden="true">
                                                         <div style="text-align: center;"><input style="margin-top: 15px;padding-left: 10px;padding-right: 10px;padding-bottom: 5px;padding-top: 5px" type="submit" value="Xác nhận"></div>
                                                         </form>

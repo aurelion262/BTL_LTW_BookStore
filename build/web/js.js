@@ -24,17 +24,38 @@ function testRegex(type,elementId)
     }
     if(type==='username')
     {
-        regex = /^[\w]{6,18}$/;
-        if(!regex.test(value)) regexAlert+="Tên tài khoản phải dài từ 6-18 kí tự, chỉ bao gồm chữ, số và dấu _\n";
+        regex = /^[\w]{5,18}$/;
+        if(!regex.test(value)) regexAlert+="Tên tài khoản phải dài từ 5-18 kí tự, chỉ bao gồm chữ, số và dấu _\n";
         return regex.test(value);
     }
     if(type==='password')
     {
-        if(document.getElementById('iptPassword').value!==document.getElementById('iptRepassword')) regexAlert+="Mật khẩu không trùng khớp\n";
-        regex = /^.{6,30}$/;
-        if(!regex.test(value)) regexAlert+="Mật khẩu phải dài từ 6-30 kí tự\n";
+        if(document.getElementById('iptPassword').value!==document.getElementById('iptRepassword').value) regexAlert+="Mật khẩu không trùng khớp\n";
+        regex = /^.{5,30}$/;
+        if(!regex.test(value)) regexAlert+="Mật khẩu phải dài từ 5-30 kí tự\n";
         return regex.test(value);
     }
+    if(type==='isEmpty')
+    {
+        if(value==="") regexAlert+="Vui lòng không để trống " + document.getElementById(elementId).name + "\n";
+        return (value==="");
+    }
+    if(type==='quantity')
+    {
+        if(value===""||value==0) regexAlert+="Vui lòng nhập số lượng phù hợp\n";
+        return (value===""||value==0);
+    }
+}
+
+function alertRegex()
+{
+    if(regexAlert!=='')
+    {
+        alert(regexAlert);
+        regexAlert='';
+        return false;
+    }
+    return true;
 }
 
 function registerInputCheck()
@@ -51,6 +72,18 @@ function registerInputCheck()
         return false;
     }
     else return true;
+}
+
+function addBookInputCheck()
+{
+    testRegex('isEmpty','iptName');
+    testRegex('isEmpty','iptAuthorr');
+    testRegex('isEmpty','iptCategoryy');
+    testRegex('isEmpty','iptPublisher');
+    testRegex('isEmpty','iptDescription');
+    testRegex('isEmpty','iptReleasedYear');
+    testRegex('isEmpty','iptFinalPrice');
+    testRegex('isEmpty','iptDiscount');
 }
 
 function isNumberKey(evt){

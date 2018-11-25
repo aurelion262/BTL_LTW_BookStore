@@ -1,0 +1,248 @@
+
+#search{
+	width: 100%;
+	height: 100px;
+	background-color: pink;
+}
+#searchbar{
+	width: 99%;
+	height: 40px;
+	border-radius: 8px;
+	border: 2px solid #fff;
+	font-size: 16px;
+	background-color: #fff;
+}
+
+#typesearch{
+	width: 20%;
+	float: left;
+	line-height: 100px;
+	height: 100px;
+	background-color: #d9d9d9;
+	text-align: center;
+}
+#searcharea{
+	width: 60%;
+	height: 100px;
+	float: left;
+}
+#searchinput{
+	padding-top: 5px;
+	height: 45px;
+	width: 100%;
+	background-color: #d9d9d9;
+}
+#choosetype{
+	height: 50px;
+	width: 100%;
+	background-color: #d9d9d9;
+}
+#searchbtnarea{
+	width: 20%;
+	float: left;
+	line-height: 50px;
+	height: 100px;
+	background-color: #d9d9d9;
+	text-align: center;
+}
+#input1{
+	width: 50%;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	background-color: #d9d9d9;
+	text-align: center;
+}
+#input2{
+	width: 50%;
+	height: 50px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+}
+#btn-search{
+	width: 100px;
+	height: 40px;
+	border-radius: 8px;
+}
+
+
+#selecttype{
+	width: 150px;
+	height: 30px;
+}
+li{
+	float: left;
+	margin-right: 5%;
+	list-style-type: none;
+}
+li a{
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+}
+
+
+.admin{
+	width: 100%;
+
+}
+.header{
+	width: 100%;
+	height: 100px;
+	font-size: 30px;
+	color: black;
+	text-align: center;
+	line-height: 100px;
+	border-bottom: 1px solid black;
+}
+.body-admin{
+	width: 100%;
+
+}
+.bar{
+	width: 100%;
+	height: 500px;
+	float: left;
+
+}
+.side-bar{
+	width: 100%;
+	height: 680px;
+	background-color: #f2f2f2;
+}
+.area-content{
+	margin-top: 20px;
+	width: 66.8%;
+	float: left;
+	padding: 20px;
+	background-color: #f2f2f2;
+
+}
+.inside-content{
+	width: 100%;
+}
+p{
+	margin: 0px;
+}
+.title-book{
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	background-color: #5cd65c;
+	color: white;
+}
+.title-account{
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	background-color: coral;
+	color: white;
+}
+.title-order{
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	background-color: black;
+	color: white;
+}
+.title-other{
+	font-size: 20px;
+	border-bottom: 1px solid black;
+	background-color: purple;
+	color: white;
+}
+.content-book{
+	margin-left: 20px;
+}
+.link-book{
+	text-decoration: none;
+	color: green;
+}
+.link-account{
+	text-decoration: none;
+	color: coral;
+}
+.link-order{
+	text-decoration: none;
+	color: black;
+}
+.link-other{
+	text-decoration: none;
+	color: purple;
+}
+
+.btn-add{
+	text-align: center;
+	margin-top: 20px;
+}
+.btn{
+	border-radius: 4px;
+	width: 100px;
+	height: 20px;
+	background-color: #5cd65c;
+	color: white;
+}
+/*
+Result search book
+*/
+.result-search-book{
+	width: 100%;
+	background-color: #f2f2f2;
+	clear: left;
+
+}
+.block-result{
+	clear: left;
+	width: 97.6%;
+	height: 170px;
+	padding: 10px;
+	border-bottom: 1px solid black;
+}
+.img-book{
+	height: 160px;
+	width: 17%;
+	float: left;
+	line-height: 170px;
+	padding: 5px;
+}
+.infor-book{
+	height: 170px;
+	width: 60%;
+	float: left;
+}
+.btn-book{
+	height: 170px;
+	width: 17%;
+	line-height: 150px;
+	float: left;
+}
+.img-search{
+	height: 160px;
+	width: 100%;
+}
+.inside-img{
+	width: 80%;
+	height: 160px;
+	margin: auto;
+}
+.btn-mod{
+	height: 20px;
+	width: 60px;
+	border-radius: 4px;
+	background-color: coral;
+	color: white;
+}
+.btn-del{
+	height: 20px;
+	width: 60px;
+	border-radius: 4px;
+	background-color: #5cd65c;
+	color: white;
+}
+.title-infor{
+	font-style: italic;
+	color: coral;
+}
+.theend{
+	text-align: center;
+	height: 40px;
+}

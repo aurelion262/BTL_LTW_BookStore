@@ -41,7 +41,7 @@ public class addToFavoriteServlet extends HttpServlet {
             bif.setAccountId(sessionAccount.getId());
             bif.setBookId(bookId);
             dao.addToFavorite(bif);
-            response.sendRedirect("favoriteList");
+            response.sendRedirect("favoriteServlet");
         }
         else
         {
