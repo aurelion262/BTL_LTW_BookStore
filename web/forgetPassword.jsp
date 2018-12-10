@@ -14,7 +14,7 @@
     <body>
         <%@ include file = "header.jsp" %>
         <div style="height: 200px; padding-top: 50px">
-        <form method="POST" action="forgetPassword">
+        <form method="POST" action="forgetPasswordServlet">
             Nhập tên tài khoản của bạn : <input type="text" name="username"><input type="submit" value="Gửi">
         </form>
         <p style="font-style: italic">(Chúng tôi sẽ gửi email nhắc mật khẩu tới địa chỉ email bạn đã dùng để đăng ký tài khoản)</p>
