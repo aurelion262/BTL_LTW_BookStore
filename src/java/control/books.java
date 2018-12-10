@@ -18,15 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Account;
 import model.Book;
-import model.BooksInCart;
 import model.DAO;
 
 /**
  *
  * @author i1vag_000
  */
-@WebServlet(name="order", urlPatterns={"/order"})
-public class order extends HttpServlet {
+@WebServlet(name="books", urlPatterns={"/books"})
+public class books extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,28 +36,16 @@ public class order extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        DAO dao = new DAO();
-        int accountId = ((Account)session.getAttribute("account")).getId();
-        ArrayList<BooksInCart> cart = dao.getAllFromCart(accountId);
-        if(cart.isEmpty())
-        {
-            response.sendRedirect("indexServlet");
-        }
-        else
-        {
-            ArrayList<Book> books = new ArrayList<>();
-            for(BooksInCart bic : cart)
-            {
-                books.add(dao.getBook(bic.getBookId()));
-            }
-            request.setAttribute("cart", cart);
-            request.setAttribute("books", books);
+            HttpSession session = request.getSession();
+            DAO dao = new DAO();
+            response.setContentType("text/html;charset=UTF-8");
+            request.setCharacterEncoding("UTF-8");
+            ArrayList<Book> bookList = new ArrayList<>();
+            String category = request.getParameter("category");
+            bookList = dao.getBookByCategory(category);
+            request.setAttribute("bookList", bookList);
             dao.close();
-            RequestDispatcher dpc = request.getRequestDispatcher("order.jsp");
+            RequestDispatcher dpc = request.getRequestDispatcher("books.jsp");
             dpc.forward(request, response);
-        }
     }
 }

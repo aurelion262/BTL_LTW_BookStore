@@ -1,0 +1,245 @@
+p{
+	margin: 0px;
+}
+.space{
+	width: 100%;
+	height: 50px;
+}
+.main-detail{
+	width: 70%;
+	height: 800px;
+	float: left;
+}
+.categories{
+	background-color: white;
+	width: 30%;
+	height: 800px;
+	float: left;
+}
+.info-book{
+	width: 100%;
+	height: 600px;
+}
+.detail-info{
+	width: 100%;
+	height: 200px;
+}
+.detail-book{
+	width: 100%;
+	height: 810px;
+}
+.book-img{
+	width: 50%;
+	height: 600px;
+	background-color: #f2f2f2;
+	float: left;
+}
+.book-feature{
+	width: 50%;
+	height: 600px;
+	background-color: white;
+	float: left;
+}
+.btn-detail{
+	width: 100px;
+	height: 30px;
+	border-radius: 12px;
+	color: white;
+        text-align: center;
+        line-height: 30px;
+	background-color: coral;
+}
+.body{
+	width: 90%;
+	margin:auto;
+}
+.img{
+	width: 80%;
+	background-color: green;
+	height: 500px;
+	margin:40px;
+}
+.middle-feature{
+	width: 80%;
+	height: 600px;
+	margin-left:40px;
+	margin-right: 40px;
+}
+.img-dimension{
+	width: 100%;
+	background-color: white;
+	height: 500px;
+}
+.text-title{
+	font-size: 21px;
+	font-weight: bold;
+}
+.intro-1{
+	height: 300px;
+	width: 100%;
+}
+.inside-intro-1{
+	height: 300px;
+	width: 100%;
+	overflow: auto;
+}
+.feature-btn{
+	height: 50px;
+	width: 80%;
+	margin:auto;
+	margin-top: 20px;
+}
+.inside-btn{
+	text-align: center;
+	float: left;
+}
+.btn{
+	width: 100px;
+	height: 40px;
+	border-radius: 8px;
+	background-color: #93bc39;
+}
+.inside-icon{
+	float: left;
+}
+.iconbody{
+	width: 40px;
+	height: 40px;
+}
+.categories-name{
+	width: 100%;
+	margin: auto;
+	color: coral;
+	margin-top: 30px;
+	height: 20px;
+}
+.link-block{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 18px;
+	border-bottom: dashed;
+	border-color: #d9d9d9;
+}
+.old-price{
+	text-decoration: none;
+	font-size: 21px;
+	font-weight: bold;
+	color: #bcbcbe;
+	text-decoration: line-through;
+}
+.link-cate{
+	text-decoration: none;
+	color: coral;
+}
+.info-btn{
+	width: 100%;
+	height: 30px;
+	margin-top: 10px;
+}
+.info-text{
+	margin-top: 10px;
+	width: 100%;
+	height: 150px;
+}
+.relate-books{
+	width: 100%;
+	clear: left;
+}
+/* 
+	end of detail book
+	start other content : related books, new book;
+*/
+.introduce{
+	width: 100%;
+	height: 150px;
+}
+.space1{
+	width: 100%;
+	height: 30px;
+}
+.title1{
+	width: 100%;
+	height: 60px;
+	text-align: center;
+}
+.title2{
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	color: #ff8c1a;
+
+}
+.content{
+	text-align: center;
+}
+#product{
+}
+.title{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	height: 40px;
+}
+
+.block-new{
+	width: 100%;
+	height: 440px;
+	background-color: white;
+}
+#temp1{
+	width: 100%;
+	height: 440px;
+	padding: 25px;
+}
+.block{
+	float: left;
+	width: 20%;
+	height: 420px;
+	padding: 10px;
+	float: left;
+}
+.image-block{
+	height: 300px;
+	width: 100%;
+	background-color: yellow;
+}
+.block-icon{
+	height: 30px;
+	width: 30px;
+}
+.iconf{
+	float: left;
+}
+.spacef{
+	float: left;
+	width: 33px;
+	height: 1px;
+}
+.bookcover{
+	width: 100%;
+	height: 300px;
+}
+.bookname-block{
+	margin-top: 10px;
+	text-align: center;
+}
+.price-block{
+	text-align: center;
+	margin-top: 10px;
+}
+.button-block{
+	margin: auto;
+	width: 50%;
+	margin-top: 10px;
+}
+.seeall{
+	clear: left;
+	text-decoration: none;
+	text-align: center;
+}
+.temp2{
+	text-decoration: none;
+	color: coral;
+	font-size: 20px;
+}

@@ -838,6 +838,7 @@ public class DAO {
             {
                 Order o = new Order();
                 o.setId(rs.getInt("ID"));
+                o.setClientName(rs.getString("CLIENTNAME"));
                 o.setAccountId(rs.getInt("ACCOUNTID"));
                 o.setAddress(rs.getString("ADDRESS"));
                 o.setCreatedDate(rs.getString("CREATEDDATE"));
@@ -895,6 +896,7 @@ public class DAO {
             {
                 Order o = new Order();
                 o.setId(rs.getInt("ID"));
+                o.setClientName(rs.getString("CLIENTNAME"));
                 o.setAccountId(rs.getInt("ACCOUNTID"));
                 o.setAddress(rs.getString("ADDRESS"));
                 o.setCreatedDate(rs.getString("CREATEDDATE"));

@@ -50,6 +50,7 @@
 					<div class="block">					
 
 						<div style="float:left">
+                                                        <div class="inforline">Tên người nhận : <%=o.getClientName()%></div>
                                                         <div class="inforline">Mã đơn hàng : <%=o.getId()%></div>
                                                         <div class="inforline">Ngày đặt : <%=o.getCreatedDate()%></div>
                                                         <div style="height: 48px; width: 70%" class="inforline">Địa chỉ đăng ký nhận hàng : <%=o.getAddress()%></div>

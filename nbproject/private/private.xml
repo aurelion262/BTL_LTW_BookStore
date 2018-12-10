@@ -3,12 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Luu/Documents/GitHub/BTL_LTW_BookStore/web/WEB-INF/web.xml</file>
-            <file>file:/E:/Luu/Documents/GitHub/BTL_LTW_BookStore/web/addBook.jsp</file>
-            <file>file:/E:/Luu/Documents/GitHub/BTL_LTW_BookStore/web/admin-css.css</file>
-            <file>file:/E:/Luu/Documents/GitHub/BTL_LTW_BookStore/web/admin.jsp</file>
-            <file>file:/E:/Luu/Documents/GitHub/BTL_LTW_BookStore/build/web/js.js</file>
-            <file>file:/E:/Luu/Documents/GitHub/BTL_LTW_BookStore/web/bookDetail.jsp</file>
+            <file>file:/E:/Luu/Documents/GitHub/BTL_LTW_BookStore/src/java/model/DAO.java</file>
         </group>
     </open-files>
 </project-private>

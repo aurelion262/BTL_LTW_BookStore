@@ -1,0 +1,207 @@
+.introduce{
+	width: 100%;
+	height: 150px;
+}
+.space1{
+	width: 100%;
+	height: 30px;
+}
+.title1{
+	width: 100%;
+	height: 60px;
+	text-align: center;
+}
+.title2{
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	color: #ff8c1a;
+
+}
+.content{
+	text-align: center;
+}
+#product{
+}
+.title{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	height: 40px;
+}
+.icon{
+	float: left;
+}
+.body{
+	width: 90%;
+	background-color:white;
+	margin: auto;
+}
+.body1{
+	width: 90%;
+	margin: auto;	
+}
+.block-new{
+	width: 100%;
+	height: 440px;
+	background-color: white;
+}
+.block-new-1{
+	width: 100%;
+	height: 440px;
+}
+.body2{
+	width: 90%;
+	background-color:white;
+	margin: auto;
+}
+.block-new-2{
+	width: 100%;
+	height: 440px;
+	background-color: white;
+}
+.body3{
+	width: 90%;
+	margin: auto;
+}
+.block-new-3{
+	width: 100%;
+	height: 440px;
+}
+.block{
+	float: left;
+	width: 20%;
+	height: 420px;
+	padding: 10px;
+	float: left;
+}
+.image-block{
+	height: 300px;
+	width: 100%;
+	background-color: yellow;
+}
+.space{
+	float: left;
+	width: 33px;
+	height: 1px;
+}
+#temp1{
+	width: 100%;
+	height: 440px;
+	padding: 25px;
+}
+.bookname-block{
+	margin-top: 10px;
+	text-align: center;
+}
+.price-block{
+	text-align: center;
+	margin-top: 10px;
+}
+.seeall{
+	clear: left;
+	text-decoration: none;
+	text-align: center;
+}
+.button-block{
+	margin: auto;
+	width: 50%;
+	margin-top: 10px;
+}
+.old-price{
+	text-decoration: line-through;
+	color: coral;
+}
+.bookcover{
+	width: 100%;
+	height: 300px;
+}
+.block-icon{
+	height: 30px;
+	width: 30px;
+}
+.link{
+	text-align: center;
+}
+.temp2{
+	text-decoration: none;
+	color: coral;
+	font-size: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.space2{
+	height: 40px;
+}
+.linktotype{
+	width: 48%;
+	height: 50px;
+	margin: auto;
+	line-height: 50px;
+	text-align: center;
+}
+.linktype{
+	float: left;
+	margin-left: 15px;
+	margin-right: 15px;
+
+}
+.linkstype{
+	width: 90%;
+	margin: auto;
+	height: 50px;
+	background-color: #f2f2f2;
+	margin-top: 50px;
+}
+.staywithus{
+	width: 90%;
+	height: 260px;
+	background-color: white;
+	margin: auto;
+}
+.staytext{
+	width: 80%;
+	margin: auto;
+	height: 60px;
+	background-color: white;
+	font-size: 25px;
+	font-weight: bold;
+	padding-top: 20px;
+}
+.inputemail{
+	width: 90%;
+	height: 80px;
+	margin: auto;
+}
+.inputyouremail{
+	width: 390px;
+	height: 30px;
+	border-radius: 8px;
+	border-color: #92bc39;
+	font-size: 14px;
+}
+.emailarea{
+	margin: auto;
+	width: 50%;
+}
+.subbtn{
+	border-color: white;
+	margin-left: 20px;
+	color: #93bc39;
+	font-weight: bold;
+	font-size: 13px;
+}
+.contenttoemail{
+	width: 90%;
+	height: 50px;
+	margin: auto;
+	background-color: white;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+	color: coral;
+}
+p{
+	margin: 0;
+}

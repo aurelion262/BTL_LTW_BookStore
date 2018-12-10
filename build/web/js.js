@@ -37,7 +37,7 @@ function testRegex(type,elementId)
     }
     if(type==='isEmpty')
     {
-        if(value==="") regexAlert+="Vui lòng không để trống " + document.getElementById(elementId).name + "\n";
+        if(value==="") regexAlert+="Vui lòng không để trống " + document.getElementById(elementId).placeholder + "\n";
         return (value==="");
     }
     if(type==='quantity')
